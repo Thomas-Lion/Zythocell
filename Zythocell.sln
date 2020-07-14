@@ -9,13 +9,51 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Identity", "Identity", "{38
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{A4EACAEC-9A23-45EE-B606-7EC80A003055}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{5ABA6E25-B8BA-458C-BF2C-7C61BC735627}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zythocell.Common", "Common\Zythocell.Common\Zythocell.Common.csproj", "{BDBE383F-4FE4-4C3B-9478-751F770807D1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{BE478F33-40C4-4E5E-863F-876DF1739F4A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zythocell.BLL", "Services\Cellar\Zythocell.BLL\Zythocell.BLL.csproj", "{410979C7-94A1-4AD0-8310-74A418DEA138}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zythocell.DAL", "Services\Cellar\Zythocell.DAL\Zythocell.DAL.csproj", "{BCE530D0-8164-4444-B238-95587017BC5A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zythocell.Identity", "Services\Identity\Zythocell.Identity\Zythocell.Identity.csproj", "{C5D1FABD-BEE5-47CF-8816-7741243001AC}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BDBE383F-4FE4-4C3B-9478-751F770807D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BDBE383F-4FE4-4C3B-9478-751F770807D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BDBE383F-4FE4-4C3B-9478-751F770807D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BDBE383F-4FE4-4C3B-9478-751F770807D1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{410979C7-94A1-4AD0-8310-74A418DEA138}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{410979C7-94A1-4AD0-8310-74A418DEA138}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{410979C7-94A1-4AD0-8310-74A418DEA138}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{410979C7-94A1-4AD0-8310-74A418DEA138}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BCE530D0-8164-4444-B238-95587017BC5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BCE530D0-8164-4444-B238-95587017BC5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BCE530D0-8164-4444-B238-95587017BC5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BCE530D0-8164-4444-B238-95587017BC5A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C5D1FABD-BEE5-47CF-8816-7741243001AC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5D1FABD-BEE5-47CF-8816-7741243001AC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5D1FABD-BEE5-47CF-8816-7741243001AC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C5D1FABD-BEE5-47CF-8816-7741243001AC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{D9B36C92-3AA5-4163-BA57-5AF65FD243D1} = {A4EACAEC-9A23-45EE-B606-7EC80A003055}
 		{3861C859-A168-4BCE-BC01-7D62E4B9941E} = {A4EACAEC-9A23-45EE-B606-7EC80A003055}
+		{BDBE383F-4FE4-4C3B-9478-751F770807D1} = {5ABA6E25-B8BA-458C-BF2C-7C61BC735627}
+		{410979C7-94A1-4AD0-8310-74A418DEA138} = {D9B36C92-3AA5-4163-BA57-5AF65FD243D1}
+		{BCE530D0-8164-4444-B238-95587017BC5A} = {D9B36C92-3AA5-4163-BA57-5AF65FD243D1}
+		{C5D1FABD-BEE5-47CF-8816-7741243001AC} = {3861C859-A168-4BCE-BC01-7D62E4B9941E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {80E05E61-3CA5-4666-8AA4-B3906D8ADC94}
