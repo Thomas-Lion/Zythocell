@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Zythocell.CC.Interfaces
 {
-    class IRepository
+    interface IRepository
     {
     }
 }
