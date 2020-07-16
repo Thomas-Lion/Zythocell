@@ -6,6 +6,7 @@ namespace Zythocell.DAL.Entities
 {
     public class Cellar
     {
+        public int Id { get; set; }
         public Guid UserId { get; set; }
         public int BeverageId { get; set; }
         public int Quantity { get; set; }
