@@ -39,6 +39,7 @@ namespace Zythocell.DAL.Tests.RepositoriesTests.BeverageTests
             Assert.AreEqual(1, BRepo.GetAll().Count);
 
             BRepo.Delete(result);
+            BRepo.Save();
 
             Assert.AreEqual(0, BRepo.GetAll().Count);
             Assert.AreEqual(true, BRepo.GetById(result.Id).IsDeleted);

@@ -12,7 +12,7 @@ namespace Zythocell.DAL.Entities
         public BeverageType BeveragType { get; set; }
         public string Country { get; set; }
         public string Productor { get; set; }
-        public int Alcohol { get; set; }
+        public double Alcohol { get; set; }
         public int Size { get; set; }
         public string Color { get; set; }
         public bool IsDeleted { get; set; }
