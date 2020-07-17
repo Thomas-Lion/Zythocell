@@ -19,4 +19,8 @@
     <ProjectReference Include="..\Services\Cellar\Zythocell.DAL\Zythocell.DAL.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="RepositoriesTests\RateTests\" />
+  </ItemGroup>
+
 </Project>

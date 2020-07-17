@@ -31,5 +31,6 @@ namespace Zythocell.DAL.Context
 
         public DbSet<Beverage> Beverages { get; set; }
         public DbSet<Cellar> Cellars { get; set; }
+        public DbSet<Rate> Rates { get; set; }
     }
 }
