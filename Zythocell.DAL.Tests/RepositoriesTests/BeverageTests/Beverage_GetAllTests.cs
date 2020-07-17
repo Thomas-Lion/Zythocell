@@ -30,7 +30,7 @@ namespace Zythocell.DAL.Tests.RepositoriesTests.BeverageTests
                 Country = "Belgium1",
                 Productor = "Abbaye d'Orval1",
                 Size = 33,
-                Alcohol = 9,
+                Alcohol = 6.2,
                 IsDeleted = false
             };
             var beverage2 = new Beverage
@@ -41,9 +41,9 @@ namespace Zythocell.DAL.Tests.RepositoriesTests.BeverageTests
                 Country = "Belgium2",
                 Productor = "Abbaye d'Orval2",
                 Size = 33,
-                Alcohol = 9,
+                Alcohol = 6.2,
                 IsDeleted = false
-            }; 
+            };
             var beverage3 = new Beverage
             {
                 Name = "Orval3",
@@ -52,7 +52,7 @@ namespace Zythocell.DAL.Tests.RepositoriesTests.BeverageTests
                 Country = "Belgium3",
                 Productor = "Abbaye d'Orval3",
                 Size = 33,
-                Alcohol = 9,
+                Alcohol = 6.2,
                 IsDeleted = true
             };
 
@@ -65,5 +65,5 @@ namespace Zythocell.DAL.Tests.RepositoriesTests.BeverageTests
 
             Assert.AreEqual(2, result.Count());
         }
-        }
+    }
 }

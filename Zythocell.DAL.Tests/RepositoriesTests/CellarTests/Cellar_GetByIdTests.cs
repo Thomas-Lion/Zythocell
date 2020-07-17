@@ -12,10 +12,10 @@ using Zythocell.DAL.Repositories;
 namespace Zythocell.DAL.Tests.RepositoriesTests.CellarTests
 {
     [TestClass]
-    public class Cellar_GetByUserTests
+    public class Cellar_GetByIdTests
     {
         [TestMethod]
-        public void GetByUserCellar_Correct()
+        public void GetByIdCellar_Correct()
         {
             var options = new DbContextOptionsBuilder<ZythocellContext>().UseInMemoryDatabase(MethodBase.GetCurrentMethod().Name).Options;
             var context = new ZythocellContext(options);
@@ -73,76 +73,29 @@ namespace Zythocell.DAL.Tests.RepositoriesTests.CellarTests
                 Quantity = 3
             };
 
-            CRepo.Insert(cellar1);
-            CRepo.Insert(cellar2);
-            CRepo.Insert(cellar3);
-            CRepo.Insert(cellar4);
+            var added1 = CRepo.Insert(cellar1);
+            var added2 = CRepo.Insert(cellar2);
+            var added3 = CRepo.Insert(cellar3);
+            var added4 = CRepo.Insert(cellar4);
             CRepo.Save();
 
-            var result1 = CRepo.GetByUser(user1);
-            var result2 = CRepo.GetByUser(user2);
+            var result1 = CRepo.GetById(added2.Id);
+            var result2 = CRepo.GetById(added3.Id);
 
-            Assert.AreEqual(3, result1.Count);
-            Assert.AreEqual(1, result2.Count);
+            Assert.AreEqual(10, result1.Quantity);
+            Assert.AreEqual(user1, result1.UserId);
+            Assert.AreEqual(25, result2.Quantity);
+            Assert.AreEqual(user2, result2.UserId);
         }
 
         [TestMethod]
-        public void GetByUserCellar_EmptyList()
+        public void GetByIdCellar_NothingToGet()
         {
             var options = new DbContextOptionsBuilder<ZythocellContext>().UseInMemoryDatabase(MethodBase.GetCurrentMethod().Name).Options;
             var context = new ZythocellContext(options);
-            IBeverageRepository BRepo = new BeverageRepository(context);
             ICellarRepository CRepo = new CellarRepository(context);
 
-            var beverage = new Beverage
-            {
-                Name = "Orval",
-                BeveragType = BeverageType.Beer,
-                Color = "Brown",
-                Country = "Belgium",
-                Productor = "Abbaye d'Orval",
-                Size = 33,
-                Alcohol = 6.2,
-                IsDeleted = false
-            };
-
-            var addedBeverage = BRepo.Insert(beverage);
-            BRepo.Save();
-
-            var user1 = new Guid("62FA647C-AD54-4BCC-A860-AAAAAAAAAAAA");
-            var user2 = new Guid("62FA647C-AD54-4BCC-A860-FFFFFFFFFFFF");
-
-            var cellar = new Cellar
-            {
-                Age = DateTime.Now.AddDays(-50),
-                BeverageId = addedBeverage.Id,
-                UserId = user1,
-                Date = DateTime.Now,
-                Quantity = 32
-            };
-
-
-            CRepo.Insert(cellar);
-            CRepo.Save();
-
-            var result2 = CRepo.GetByUser(user2);
-
-            Assert.AreEqual(0, result2.Count);
-        }
-
-        [TestMethod]
-        public void GetByUserCellar_EmptyGuid()
-        {
-            var options = new DbContextOptionsBuilder<ZythocellContext>().UseInMemoryDatabase(MethodBase.GetCurrentMethod().Name).Options;
-            var context = new ZythocellContext(options);
-            IBeverageRepository BRepo = new BeverageRepository(context);
-            ICellarRepository CRepo = new CellarRepository(context);                     
-
-            var user = new Guid();
-
-            var result2 = CRepo.GetByUser(user);
-
-            Assert.AreEqual(0, result2.Count);
+            Assert.ThrowsException<ArgumentException>(() => CRepo.GetById(-666));
         }
     }
 }

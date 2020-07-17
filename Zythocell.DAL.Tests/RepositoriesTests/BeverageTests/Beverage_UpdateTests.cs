@@ -29,7 +29,7 @@ namespace Zythocell.DAL.Tests.RepositoriesTests.BeverageTests
                 Country = "Belgium",
                 Productor = "Abbaye d'Orval",
                 Size = 33,
-                Alcohol = 9,
+                Alcohol = 6.2,
                 IsDeleted = false
             };
 
@@ -43,6 +43,60 @@ namespace Zythocell.DAL.Tests.RepositoriesTests.BeverageTests
             BRepo.Save();
             Assert.AreEqual(8.5, BRepo.GetById(result.Id).Alcohol);
             Assert.AreEqual("Peak Triple", BRepo.GetById(result.Id).Name);
+        }
+        
+        [TestMethod]
+        public void UpdateBeverage_NegativeSize()
+        {
+            var options = new DbContextOptionsBuilder<ZythocellContext>().UseInMemoryDatabase(MethodBase.GetCurrentMethod().Name).Options;
+            var context = new ZythocellContext(options);
+            IBeverageRepository BRepo = new BeverageRepository(context);
+
+            var beverage = new Beverage
+            {
+                Name = "Orval",
+                BeveragType = BeverageType.Beer,
+                Color = "Brown",
+                Country = "Belgium",
+                Productor = "Abbaye d'Orval",
+                Size = 33,
+                Alcohol = 6.2,
+                IsDeleted = false
+            };
+
+            var result = BRepo.Insert(beverage);
+            BRepo.Save();
+
+            result.Size = -56;
+
+            Assert.ThrowsException<ArgumentException>(() => BRepo.Update(result));
+        }
+        
+        [TestMethod]
+        public void UpdateBeverage_NegativeAlcohol()
+        {
+            var options = new DbContextOptionsBuilder<ZythocellContext>().UseInMemoryDatabase(MethodBase.GetCurrentMethod().Name).Options;
+            var context = new ZythocellContext(options);
+            IBeverageRepository BRepo = new BeverageRepository(context);
+
+            var beverage = new Beverage
+            {
+                Name = "Orval",
+                BeveragType = BeverageType.Beer,
+                Color = "Brown",
+                Country = "Belgium",
+                Productor = "Abbaye d'Orval",
+                Size = 33,
+                Alcohol = 6.2,
+                IsDeleted = false
+            };
+
+            var result = BRepo.Insert(beverage);
+            BRepo.Save();
+
+            result.Alcohol = -56;
+
+            Assert.ThrowsException<ArgumentException>(() => BRepo.Update(result));
         }
     }
 }

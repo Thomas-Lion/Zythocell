@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,9 +16,20 @@ namespace Zythocell.DAL.Repositories
         {
             this.context = context;
         }
-        public ICollection<Cellar> GetAll()
+
+        public Cellar GetById(int Id)
         {
-            throw new NotImplementedException();
+            if (Id <= 0)
+            {
+                throw new ArgumentException();
+            }
+            var beverage = context.Cellars.AsNoTracking()
+                                          .FirstOrDefault(x => x.Id == Id);
+            if (beverage == null)
+            {
+                throw new NullReferenceException();
+            }
+            return beverage;
         }
 
         public ICollection<Cellar> GetByUser(Guid userId)
@@ -34,14 +46,21 @@ namespace Zythocell.DAL.Repositories
             {
                 throw new ArgumentNullException();
             }
+            if (entity.Quantity <= 0)
+            {
+                throw new ArgumentException();
+            }
             
             var result = context.Cellars.Add(entity);
             return result.Entity;
         }
 
-        public ICollection<Cellar> OrderByRate(Guid userId)
+        public ICollection<Cellar> OrderByDate(Guid userId)
         {
-            throw new NotImplementedException();
+            var cellars = context.Cellars.OrderBy(x => x.Date)
+                                         .Select(x => x)
+                                         .ToList();
+            return cellars;
         }
 
         public int Save()
@@ -51,7 +70,20 @@ namespace Zythocell.DAL.Repositories
 
         public Cellar Update(Cellar entity)
         {
-            throw new NotImplementedException();
+            if (entity is null)
+                throw new ArgumentNullException(nameof(entity));
+
+            if (entity.Id <= 0 || entity.Quantity < 0)
+                throw new ArgumentException();
+
+            if (entity.UserId != GetById(entity.Id).UserId)
+            {
+                throw new ArgumentException();
+            }
+
+            context.Cellars.Attach(entity).State = EntityState.Modified;
+
+            return entity;
         }
     }
 }

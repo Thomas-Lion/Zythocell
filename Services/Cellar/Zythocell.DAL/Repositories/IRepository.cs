@@ -8,7 +8,7 @@ namespace Zythocell.DAL.Repositories
     {
         public E Insert(E entity);
         public E Update(E entity);
-        public ICollection<E> GetAll();
         public int Save();
+        public E GetById(int Id);
     }
 }

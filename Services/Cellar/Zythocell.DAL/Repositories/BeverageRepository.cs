@@ -45,6 +45,10 @@ namespace Zythocell.DAL.Repositories
             {
                 throw new ArgumentNullException();
             }
+            if (entity.Size <= 0 || entity.Alcohol < 0)
+            {
+                throw new ArgumentException();
+            }
             if (entity.Id != 0)
             {
                 return entity;
@@ -63,7 +67,7 @@ namespace Zythocell.DAL.Repositories
             if (entity is null)
                 throw new ArgumentNullException(nameof(entity));
 
-            if (entity.Id <= 0)
+            if (entity.Id <= 0 || entity.Size <= 0 || entity.Alcohol < 0)
                 throw new ArgumentException();
 
             context.Beverages.Attach(entity).State = EntityState.Modified;

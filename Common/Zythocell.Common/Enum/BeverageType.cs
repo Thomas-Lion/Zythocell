@@ -8,6 +8,7 @@ namespace Zythocell.Common.Enum
     {
         Beer,
         Wine,
-        Whisky
+        Whisky,
+        Anything
     }
 }

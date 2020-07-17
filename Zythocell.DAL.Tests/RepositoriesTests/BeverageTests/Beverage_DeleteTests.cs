@@ -29,7 +29,7 @@ namespace Zythocell.DAL.Tests.RepositoriesTests.BeverageTests
                 Country = "Belgium",
                 Productor = "Abbaye d'Orval",
                 Size = 33,
-                Alcohol = 9,
+                Alcohol = 6.2,
                 IsDeleted = false
             };
 

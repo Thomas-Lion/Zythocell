@@ -8,6 +8,6 @@ namespace Zythocell.DAL.Repositories
     public interface ICellarRepository : IRepository<Cellar>
     {
         public ICollection<Cellar> GetByUser(Guid userId);
-        public ICollection<Cellar> OrderByRate(Guid userId);
+        public ICollection<Cellar> OrderByDate(Guid userId);
     }
 }
