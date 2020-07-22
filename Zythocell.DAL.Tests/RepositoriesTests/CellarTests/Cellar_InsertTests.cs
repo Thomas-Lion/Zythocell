@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using System.Reflection;
 using System.Text;
 using Zythocell.Common.Enum;
+using Zythocell.Common.IRepositories;
+using Zythocell.Common.TransferObject;
 using Zythocell.DAL.Context;
 using Zythocell.DAL.Entities;
 using Zythocell.DAL.Repositories;
@@ -22,7 +24,7 @@ namespace Zythocell.DAL.Tests.RepositoriesTests.CellarTests
             IBeverageRepository BRepo = new BeverageRepository(context);
             ICellarRepository CRepo = new CellarRepository(context);
 
-            var beverage = new Beverage
+            var beverage = new BeverageTO
             {
                 Name = "Orval",
                 BeveragType = BeverageType.Beer,
@@ -39,7 +41,7 @@ namespace Zythocell.DAL.Tests.RepositoriesTests.CellarTests
 
             var user = new Guid("62FA647C-AD54-4BCC-A860-E5A2664B019D");
 
-            var cellar = new Cellar
+            var cellar = new CellarTO
             {
                 Age = DateTime.Now.AddDays(-50),
                 BeverageId = addedBeverage.Id,
@@ -75,7 +77,7 @@ namespace Zythocell.DAL.Tests.RepositoriesTests.CellarTests
             IBeverageRepository BRepo = new BeverageRepository(context);
             ICellarRepository CRepo = new CellarRepository(context);
 
-            var beverage = new Beverage
+            var beverage = new BeverageTO
             {
                 Name = "Orval",
                 BeveragType = BeverageType.Beer,
@@ -92,7 +94,7 @@ namespace Zythocell.DAL.Tests.RepositoriesTests.CellarTests
 
             var user = new Guid();
 
-            var cellar = new Cellar
+            var cellar = new CellarTO
             {
                 Age = DateTime.Now.AddDays(-50),
                 BeverageId = addedBeverage.Id,
@@ -113,7 +115,7 @@ namespace Zythocell.DAL.Tests.RepositoriesTests.CellarTests
 
             var user = new Guid("62FA647C-AD54-4BCC-A860-E5A2664B019D");
 
-            var cellar = new Cellar
+            var cellar = new CellarTO
             {
                 Age = DateTime.Now.AddDays(-50),
                 BeverageId = -60,
@@ -133,7 +135,7 @@ namespace Zythocell.DAL.Tests.RepositoriesTests.CellarTests
             IBeverageRepository BRepo = new BeverageRepository(context);
             ICellarRepository CRepo = new CellarRepository(context);
 
-            var beverage = new Beverage
+            var beverage = new BeverageTO
             {
                 Name = "Orval",
                 BeveragType = BeverageType.Beer,
@@ -150,7 +152,7 @@ namespace Zythocell.DAL.Tests.RepositoriesTests.CellarTests
 
             var user = new Guid("62FA647C-AD54-4BCC-A860-E5A2664B019D");
 
-            var cellar = new Cellar
+            var cellar = new CellarTO
             {
                 Age = DateTime.Now.AddDays(-50),
                 BeverageId = addedBeverage.Id,

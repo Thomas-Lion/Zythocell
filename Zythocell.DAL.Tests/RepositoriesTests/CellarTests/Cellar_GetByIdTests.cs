@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using System.Reflection;
 using System.Text;
 using Zythocell.Common.Enum;
+using Zythocell.Common.IRepositories;
+using Zythocell.Common.TransferObject;
 using Zythocell.DAL.Context;
 using Zythocell.DAL.Entities;
 using Zythocell.DAL.Repositories;
@@ -22,7 +24,7 @@ namespace Zythocell.DAL.Tests.RepositoriesTests.CellarTests
             IBeverageRepository BRepo = new BeverageRepository(context);
             ICellarRepository CRepo = new CellarRepository(context);
 
-            var beverage = new Beverage
+            var beverage = new BeverageTO
             {
                 Name = "Orval",
                 BeveragType = BeverageType.Beer,
@@ -40,7 +42,7 @@ namespace Zythocell.DAL.Tests.RepositoriesTests.CellarTests
             var user1 = new Guid("62FA647C-AD54-4BCC-A860-AAAAAAAAAAAA");
             var user2 = new Guid("62FA647C-AD54-4BCC-A860-FFFFFFFFFFFF");
 
-            var cellar1 = new Cellar
+            var cellar1 = new CellarTO
             {
                 Age = DateTime.Now.AddDays(-50),
                 BeverageId = addedBeverage.Id,
@@ -48,7 +50,7 @@ namespace Zythocell.DAL.Tests.RepositoriesTests.CellarTests
                 Date = DateTime.Now,
                 Quantity = 32
             };
-            var cellar2 = new Cellar
+            var cellar2 = new CellarTO
             {
                 Age = DateTime.Now.AddDays(-666),
                 BeverageId = addedBeverage.Id,
@@ -56,7 +58,7 @@ namespace Zythocell.DAL.Tests.RepositoriesTests.CellarTests
                 Date = DateTime.Now,
                 Quantity = 10
             };
-            var cellar3 = new Cellar
+            var cellar3 = new CellarTO
             {
                 Age = DateTime.Now.AddDays(-15),
                 BeverageId = addedBeverage.Id,
@@ -64,7 +66,7 @@ namespace Zythocell.DAL.Tests.RepositoriesTests.CellarTests
                 Date = DateTime.Now,
                 Quantity = 25
             };
-            var cellar4 = new Cellar
+            var cellar4 = new CellarTO
             {
                 Age = DateTime.Now.AddDays(-60),
                 BeverageId = addedBeverage.Id,

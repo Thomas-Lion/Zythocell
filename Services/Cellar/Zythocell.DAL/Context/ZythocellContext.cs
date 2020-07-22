@@ -29,8 +29,8 @@ namespace Zythocell.DAL.Context
             base.OnConfiguring(optionsBuilder);
         }
 
-        public DbSet<Beverage> Beverages { get; set; }
-        public DbSet<Cellar> Cellars { get; set; }
-        public DbSet<Rate> Rates { get; set; }
+        public DbSet<BeverageEF> Beverages { get; set; }
+        public DbSet<CellarEF> Cellars { get; set; }
+        public DbSet<RateEF> Rates { get; set; }
     }
 }

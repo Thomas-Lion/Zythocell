@@ -5,7 +5,7 @@ using Zythocell.Common.Enum;
 
 namespace Zythocell.DAL.Entities
 {
-    public class Beverage
+    public class BeverageEF
     {
         public int Id { get; set; }
         public string Name { get; set; }

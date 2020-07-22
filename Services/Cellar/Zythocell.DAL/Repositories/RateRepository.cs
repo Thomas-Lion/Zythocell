@@ -3,8 +3,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Zythocell.Common.IRepositories;
+using Zythocell.Common.TransferObject;
 using Zythocell.DAL.Context;
 using Zythocell.DAL.Entities;
+using Zythocell.DAL.Extensions;
 
 namespace Zythocell.DAL.Repositories
 {
@@ -17,7 +20,7 @@ namespace Zythocell.DAL.Repositories
             this.context = context;
         }
 
-        public Rate GetById(int Id)
+        public RateTO GetById(int Id)
         {
             if (Id <= 0)
             {
@@ -29,10 +32,10 @@ namespace Zythocell.DAL.Repositories
             {
                 throw new NullReferenceException();
             }
-            return rate;
+            return rate.ToTO();
         }
 
-        public ICollection<Rate> GetByUser(Guid userId)
+        public ICollection<RateTO> GetByUser(Guid userId)
         {
             if (userId == Guid.Empty)
             {
@@ -40,12 +43,12 @@ namespace Zythocell.DAL.Repositories
             }
 
             var rates = context.Rates.Where(x => x.UserId == userId)
-                                     .Select(x => x)
+                                     .Select(x => x.ToTO())
                                      .ToList();
             return rates;
         }
 
-        public Rate Insert(Rate entity)
+        public RateTO Insert(RateTO entity)
         {
             if (entity is null || entity.UserId == Guid.Empty || entity.BeverageId <= 0)
             {
@@ -59,14 +62,14 @@ namespace Zythocell.DAL.Repositories
             {
                 return entity;
             }
-            var result = context.Rates.Add(entity);
-            return result.Entity;
+            var result = context.Rates.Add(entity.ToEF());
+            return result.Entity.ToTO();
         }
 
         /*
          *  Order By Descending Best to Bad
          */
-        public ICollection<Rate> OrderByRate(Guid userId)
+        public ICollection<RateTO> OrderByRate(Guid userId)
         {
             if (userId == Guid.Empty)
             {
@@ -74,7 +77,7 @@ namespace Zythocell.DAL.Repositories
             }
 
             var rates = context.Rates.OrderByDescending(x => x.Rating)
-                                     .Select(x => x)
+                                     .Select(x => x.ToTO())
                                      .ToList();
             return rates;
         }
@@ -84,14 +87,14 @@ namespace Zythocell.DAL.Repositories
             return context.SaveChanges();
         }
 
-        public Rate Update(Rate entity)
+        public RateTO Update(RateTO entity)
         {
             if (entity is null)
                 throw new ArgumentNullException(nameof(entity));
 
             if (entity.Id <= 0 || entity.Rating < 0)
                 throw new ArgumentException();
-            
+
             //check if userId is updated by looking the id of the entity 
             // test entity.id update and see if this if is triggered
             if (entity.UserId != GetById(entity.Id).UserId)
@@ -99,9 +102,14 @@ namespace Zythocell.DAL.Repositories
                 throw new ArgumentException();
             }
 
-            context.Rates.Attach(entity).State = EntityState.Modified;
+            var updated = context.Rates.FirstOrDefault(e => e.Id == entity.Id);
+            if (updated != default)
+            {
+                updated.UpdateFromDetached(entity.ToEF());
+            }
+            Save();
 
-            return entity;
+            return context.Rates.Update(updated).Entity.ToTO();
         }
     }
 }

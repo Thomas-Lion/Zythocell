@@ -4,12 +4,13 @@ using System.Text;
 
 namespace Zythocell.DAL.Entities
 {
-    public class Rate
+    public class CellarEF
     {
         public int Id { get; set; }
         public Guid UserId { get; set; }
         public int BeverageId { get; set; }
-        public double Rating { get; set; }
-        public string Comment { get; set; }
+        public int Quantity { get; set; }
+        public DateTime Date { get; set; }
+        public DateTime Age { get; set; }
     }
 }

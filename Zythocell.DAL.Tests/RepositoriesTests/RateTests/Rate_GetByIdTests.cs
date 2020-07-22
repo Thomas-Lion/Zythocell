@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using System.Reflection;
 using System.Text;
 using Zythocell.Common.Enum;
+using Zythocell.Common.IRepositories;
+using Zythocell.Common.TransferObject;
 using Zythocell.DAL.Context;
 using Zythocell.DAL.Entities;
 using Zythocell.DAL.Repositories;
@@ -22,7 +24,7 @@ namespace Zythocell.DAL.Tests.RepositoriesTests.RateTests
             IBeverageRepository BRepo = new BeverageRepository(context);
             IRateRepository RRepo = new RateRepository(context);
 
-            var beverage = new Beverage
+            var beverage = new BeverageTO
             {
                 Name = "Orval",
                 BeveragType = BeverageType.Beer,
@@ -39,7 +41,7 @@ namespace Zythocell.DAL.Tests.RepositoriesTests.RateTests
 
             var user = new Guid("62FA647C-AD54-4BCC-A860-E5A2664B019D");
 
-            var rate = new Rate
+            var rate = new RateTO
             {
                 UserId = user,
                 BeverageId = addedBeverage.Id,

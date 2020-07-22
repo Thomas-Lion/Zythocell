@@ -6,6 +6,8 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using Zythocell.Common.Enum;
+using Zythocell.Common.IRepositories;
+using Zythocell.Common.TransferObject;
 using Zythocell.DAL.Context;
 using Zythocell.DAL.Entities;
 using Zythocell.DAL.Repositories;
@@ -23,7 +25,7 @@ namespace Zythocell.DAL.Tests.RepositoriesTests.RateTests
             IBeverageRepository BRepo = new BeverageRepository(context);
             IRateRepository RRepo = new RateRepository(context);
 
-            var beverage = new Beverage
+            var beverage = new BeverageTO
             {
                 Name = "Orval",
                 BeveragType = BeverageType.Beer,
@@ -40,28 +42,28 @@ namespace Zythocell.DAL.Tests.RepositoriesTests.RateTests
 
             var user = new Guid("62FA647C-AD54-4BCC-A860-AAAAAAAAAAAA");
 
-            var rate1 = new Rate
+            var rate1 = new RateTO
             {
                 UserId = user,
                 BeverageId = addedBeverage.Id,
                 Rating = 5,
                 Comment = "C'est le matin quoi"
             };
-            var rate2 = new Rate
+            var rate2 = new RateTO
             {
                 UserId = user,
                 BeverageId = addedBeverage.Id,
                 Rating = 8,
                 Comment = "C'est le matin quoi"
             };
-            var rate3 = new Rate
+            var rate3 = new RateTO
             {
                 UserId = user,
                 BeverageId = addedBeverage.Id,
                 Rating = 7.5,
                 Comment = "C'est le matin quoi"
             };
-            var rate4 = new Rate
+            var rate4 = new RateTO
             {
                 UserId = user,
                 BeverageId = addedBeverage.Id,
@@ -75,7 +77,7 @@ namespace Zythocell.DAL.Tests.RepositoriesTests.RateTests
             var added4 = RRepo.Insert(rate4);
             RRepo.Save();
 
-            var expectedList = new List<Rate>();
+            var expectedList = new List<RateTO>();
             expectedList.Add(added2);
             expectedList.Add(added3);
             expectedList.Add(added1);

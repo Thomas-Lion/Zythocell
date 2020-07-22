@@ -3,8 +3,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Zythocell.Common.IRepositories;
+using Zythocell.Common.TransferObject;
 using Zythocell.DAL.Context;
 using Zythocell.DAL.Entities;
+using Zythocell.DAL.Extensions;
 
 namespace Zythocell.DAL.Repositories
 {
@@ -16,7 +19,7 @@ namespace Zythocell.DAL.Repositories
         {
             this.context = context;
         }
-        public Beverage GetById(int Id)
+        public BeverageTO GetById(int Id)
         {
             if (Id <= 0)
             {
@@ -28,18 +31,18 @@ namespace Zythocell.DAL.Repositories
             {
                 throw new NullReferenceException();
             }
-            return beverage;
+            return beverage.ToTO();
         }
 
-        public ICollection<Beverage> GetAll()
+        public ICollection<BeverageTO> GetAll()
         {
             var beverages = context.Beverages.Where(x => x.IsDeleted == false)
-                                             .Select(x => x)
+                                             .Select(x => x.ToTO())
                                              .ToList();
             return beverages;
         }
 
-        public Beverage Insert(Beverage entity)
+        public BeverageTO Insert(BeverageTO entity)
         {
             if (entity is null)
             {
@@ -53,8 +56,8 @@ namespace Zythocell.DAL.Repositories
             {
                 return entity;
             }
-            var result = context.Beverages.Add(entity);
-            return result.Entity;
+            var result = context.Beverages.Add(entity.ToEF());
+            return result.Entity.ToTO();
         }
 
         public int Save()
@@ -62,7 +65,7 @@ namespace Zythocell.DAL.Repositories
             return context.SaveChanges();
         }
 
-        public Beverage Update(Beverage entity)
+        public BeverageTO Update(BeverageTO entity)
         {
             if (entity is null)
                 throw new ArgumentNullException(nameof(entity));
@@ -70,12 +73,17 @@ namespace Zythocell.DAL.Repositories
             if (entity.Id <= 0 || entity.Size <= 0 || entity.Alcohol < 0)
                 throw new ArgumentException();
 
-            context.Beverages.Attach(entity).State = EntityState.Modified;
+            var updated = context.Beverages.FirstOrDefault(e => e.Id == entity.Id);
+            if (updated != default)
+            {
+                updated.UpdateFromDetached(entity.ToEF());
+            }
+            Save();
 
-            return entity;
+            return context.Beverages.Update(updated).Entity.ToTO();
         }
 
-        public bool Delete(Beverage entity)
+        public bool Delete(BeverageTO entity)
         {
             if (entity is null)
             {
