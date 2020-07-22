@@ -34,6 +34,11 @@ namespace Zythocell.DAL.Repositories
 
         public ICollection<Rate> GetByUser(Guid userId)
         {
+            if (userId == Guid.Empty)
+            {
+                throw new ArgumentNullException();
+            }
+
             var rates = context.Rates.Where(x => x.UserId == userId)
                                      .Select(x => x)
                                      .ToList();
@@ -42,7 +47,7 @@ namespace Zythocell.DAL.Repositories
 
         public Rate Insert(Rate entity)
         {
-            if (entity is null)
+            if (entity is null || entity.UserId == Guid.Empty || entity.BeverageId <= 0)
             {
                 throw new ArgumentNullException();
             }
@@ -58,9 +63,17 @@ namespace Zythocell.DAL.Repositories
             return result.Entity;
         }
 
+        /*
+         *  Order By Descending Best to Bad
+         */
         public ICollection<Rate> OrderByRate(Guid userId)
         {
-            var rates = context.Rates.OrderBy(x => x.Rating)
+            if (userId == Guid.Empty)
+            {
+                throw new ArgumentNullException();
+            }
+
+            var rates = context.Rates.OrderByDescending(x => x.Rating)
                                      .Select(x => x)
                                      .ToList();
             return rates;
@@ -78,7 +91,9 @@ namespace Zythocell.DAL.Repositories
 
             if (entity.Id <= 0 || entity.Rating < 0)
                 throw new ArgumentException();
-
+            
+            //check if userId is updated by looking the id of the entity 
+            // test entity.id update and see if this if is triggered
             if (entity.UserId != GetById(entity.Id).UserId)
             {
                 throw new ArgumentException();

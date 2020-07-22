@@ -9,18 +9,18 @@ using Zythocell.DAL.Context;
 using Zythocell.DAL.Entities;
 using Zythocell.DAL.Repositories;
 
-namespace Zythocell.DAL.Tests.RepositoriesTests.CellarTests
+namespace Zythocell.DAL.Tests.RepositoriesTests.RateTests
 {
     [TestClass]
-    public class Cellar_GetByUserTests
+    public class Rate_GetByUserTests
     {
         [TestMethod]
-        public void GetByUserCellar_Correct()
+        public void GetByUserRate_Correct()
         {
             var options = new DbContextOptionsBuilder<ZythocellContext>().UseInMemoryDatabase(MethodBase.GetCurrentMethod().Name).Options;
             var context = new ZythocellContext(options);
             IBeverageRepository BRepo = new BeverageRepository(context);
-            ICellarRepository CRepo = new CellarRepository(context);
+            IRateRepository RRepo = new RateRepository(context);
 
             var beverage = new Beverage
             {
@@ -40,59 +40,67 @@ namespace Zythocell.DAL.Tests.RepositoriesTests.CellarTests
             var user1 = new Guid("62FA647C-AD54-4BCC-A860-AAAAAAAAAAAA");
             var user2 = new Guid("62FA647C-AD54-4BCC-A860-FFFFFFFFFFFF");
 
-            var cellar1 = new Cellar
+            var rate1 = new Rate
             {
-                Age = DateTime.Now.AddDays(-50),
-                BeverageId = addedBeverage.Id,
                 UserId = user1,
-                Date = DateTime.Now,
-                Quantity = 32
-            };
-            var cellar2 = new Cellar
-            {
-                Age = DateTime.Now.AddDays(-666),
                 BeverageId = addedBeverage.Id,
+                Rating = 5,
+                Comment = "C'est le matin quoi"
+            };
+            var rate2 = new Rate
+            {
                 UserId = user1,
-                Date = DateTime.Now,
-                Quantity = 10
-            };
-            var cellar3 = new Cellar
-            {
-                Age = DateTime.Now.AddDays(-15),
                 BeverageId = addedBeverage.Id,
+                Rating = 8,
+                Comment = "C'est le matin quoi"
+            };
+            var rate3 = new Rate
+            {
+                UserId = user1,
+                BeverageId = addedBeverage.Id,
+                Rating = 7.5,
+                Comment = "C'est le matin quoi"
+            };
+            var rate4 = new Rate
+            {
                 UserId = user2,
-                Date = DateTime.Now,
-                Quantity = 25
-            };
-            var cellar4 = new Cellar
-            {
-                Age = DateTime.Now.AddDays(-60),
                 BeverageId = addedBeverage.Id,
-                UserId = user1,
-                Date = DateTime.Now,
-                Quantity = 3
+                Rating = 0,
+                Comment = "C'est le matin quoi"
             };
 
-            CRepo.Insert(cellar1);
-            CRepo.Insert(cellar2);
-            CRepo.Insert(cellar3);
-            CRepo.Insert(cellar4);
-            CRepo.Save();
+            RRepo.Insert(rate1);
+            RRepo.Insert(rate2);
+            RRepo.Insert(rate3);
+            RRepo.Insert(rate4);
+            RRepo.Save();
 
-            var result1 = CRepo.GetByUser(user1);
-            var result2 = CRepo.GetByUser(user2);
+            var result1 = RRepo.GetByUser(user1);
+            var result2 = RRepo.GetByUser(user2);
 
             Assert.AreEqual(3, result1.Count);
             Assert.AreEqual(1, result2.Count);
         }
 
         [TestMethod]
-        public void GetByUserCellar_EmptyList()
+        public void GetByUserRate_EmptyGuid()
+        {
+            var options = new DbContextOptionsBuilder<ZythocellContext>().UseInMemoryDatabase(MethodBase.GetCurrentMethod().Name).Options;
+            var context = new ZythocellContext(options);
+            IRateRepository RRepo = new RateRepository(context);
+
+            var user = new Guid();
+
+            Assert.ThrowsException<ArgumentNullException>(() => RRepo.GetByUser(user));
+        }
+
+        [TestMethod]
+        public void GetByUserRate_EmptyList()
         {
             var options = new DbContextOptionsBuilder<ZythocellContext>().UseInMemoryDatabase(MethodBase.GetCurrentMethod().Name).Options;
             var context = new ZythocellContext(options);
             IBeverageRepository BRepo = new BeverageRepository(context);
-            ICellarRepository CRepo = new CellarRepository(context);
+            IRateRepository RRepo = new RateRepository(context);
 
             var beverage = new Beverage
             {
@@ -112,34 +120,20 @@ namespace Zythocell.DAL.Tests.RepositoriesTests.CellarTests
             var user1 = new Guid("62FA647C-AD54-4BCC-A860-AAAAAAAAAAAA");
             var user2 = new Guid("62FA647C-AD54-4BCC-A860-FFFFFFFFFFFF");
 
-            var cellar = new Cellar
+            var rate = new Rate
             {
-                Age = DateTime.Now.AddDays(-50),
-                BeverageId = addedBeverage.Id,
                 UserId = user1,
-                Date = DateTime.Now,
-                Quantity = 32
+                BeverageId = addedBeverage.Id,
+                Rating = 5,
+                Comment = "C'est le matin quoi"
             };
 
+            RRepo.Insert(rate);
+            RRepo.Save();
 
-            CRepo.Insert(cellar);
-            CRepo.Save();
-
-            var result2 = CRepo.GetByUser(user2);
+            var result2 = RRepo.GetByUser(user2);
 
             Assert.AreEqual(0, result2.Count);
-        }
-
-        [TestMethod]
-        public void GetByUserCellar_EmptyGuid()
-        {
-            var options = new DbContextOptionsBuilder<ZythocellContext>().UseInMemoryDatabase(MethodBase.GetCurrentMethod().Name).Options;
-            var context = new ZythocellContext(options);
-            ICellarRepository CRepo = new CellarRepository(context);
-
-            var user = new Guid();
-
-            Assert.ThrowsException<ArgumentNullException>(() => CRepo.GetByUser(user));
         }
     }
 }

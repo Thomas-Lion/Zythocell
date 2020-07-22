@@ -34,6 +34,11 @@ namespace Zythocell.DAL.Repositories
 
         public ICollection<Cellar> GetByUser(Guid userId)
         {
+            if (userId == Guid.Empty)
+            {
+                throw new ArgumentNullException();
+            }
+
             var cellars = context.Cellars.Where(x => x.UserId == userId)
                                          .Select(x => x)
                                          .ToList();
@@ -50,13 +55,21 @@ namespace Zythocell.DAL.Repositories
             {
                 throw new ArgumentException();
             }
-            
+
             var result = context.Cellars.Add(entity);
             return result.Entity;
         }
 
+        /*
+         * Order By Ascending Older to Newer
+         */
         public ICollection<Cellar> OrderByDate(Guid userId)
         {
+            if (userId == Guid.Empty)
+            {
+                throw new ArgumentNullException();
+            }
+
             var cellars = context.Cellars.OrderBy(x => x.Date)
                                          .Select(x => x)
                                          .ToList();
