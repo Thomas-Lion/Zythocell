@@ -69,7 +69,7 @@ namespace Zythocell.DAL.Repositories
         /*
          *  Order By Descending Best to Bad
          */
-        public ICollection<RateTO> OrderByRate(Guid userId)
+        public List<RateTO> OrderByRate(Guid userId)
         {
             if (userId == Guid.Empty)
             {

@@ -66,7 +66,7 @@ namespace Zythocell.DAL.Repositories
         /*
          * Order By Ascending Older to Newer
          */
-        public ICollection<CellarTO> OrderByDate(Guid userId)
+        public List<CellarTO> OrderByDate(Guid userId)
         {
             if (userId == Guid.Empty)
             {

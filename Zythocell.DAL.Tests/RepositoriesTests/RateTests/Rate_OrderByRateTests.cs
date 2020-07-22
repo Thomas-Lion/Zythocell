@@ -85,7 +85,10 @@ namespace Zythocell.DAL.Tests.RepositoriesTests.RateTests
 
             var result = RRepo.OrderByRate(user);
 
-            Assert.IsTrue(expectedList.SequenceEqual(result));
+            Assert.AreEqual(result[0].Rating, expectedList[0].Rating);
+            Assert.AreEqual(result[1].Rating, expectedList[1].Rating);
+            Assert.AreEqual(result[2].Rating, expectedList[2].Rating);
+            Assert.AreEqual(result[3].Rating, expectedList[3].Rating);
         }
 
         [TestMethod]

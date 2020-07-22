@@ -88,8 +88,10 @@ namespace Zythocell.DAL.Tests.RepositoriesTests.CellarTests
             expectedList.Add(added1);
 
             var result = CRepo.OrderByDate(user);
-
-            Assert.IsTrue(expectedList.SequenceEqual(result));
+            Assert.AreEqual(result[0].Date, expectedList[0].Date);
+            Assert.AreEqual(result[1].Date, expectedList[1].Date);
+            Assert.AreEqual(result[2].Date, expectedList[2].Date);
+            Assert.AreEqual(result[3].Date, expectedList[3].Date);
         }
 
         [TestMethod]
