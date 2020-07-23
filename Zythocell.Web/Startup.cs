@@ -29,13 +29,11 @@ namespace Zythocell.Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<IdentityContext>(options =>
-                options.UseSqlite(
-                    Configuration.GetConnectionString(@"Data Source = C:\Users\Thomas\source\repos\Zythocell\Services\Identity\Zythocell.Identity\ZythocellIdentityDb.db")));
-
             services.AddDbContext<ZythocellContext>(options =>
-                options.UseSqlite(
-                    Configuration.GetConnectionString(@"Data Source = C:\Users\Thomas\source\repos\Zythocell\Services\Cellar\Zythocell.DAL\ZythocellCellarDb.db")));
+                options.UseSqlite(@"Data Source = C:\Users\Thomas\source\repos\Zythocell\Services\Cellar\Zythocell.DAL\ZythocellCellarDb.db"));
+
+            services.AddDbContext<IdentityContext>(options =>
+                options.UseSqlite(@"Data Source = C:\Users\Thomas\source\repos\Zythocell\Services\Identity\Zythocell.Identity\ZythocellIdentityDb.db"));
 
             services.AddControllersWithViews();
             services.AddRazorPages();
