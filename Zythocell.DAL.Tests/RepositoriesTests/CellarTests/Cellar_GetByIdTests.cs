@@ -39,8 +39,8 @@ namespace Zythocell.DAL.Tests.RepositoriesTests.CellarTests
             var addedBeverage = BRepo.Insert(beverage);
             BRepo.Save();
 
-            var user1 = new Guid("62FA647C-AD54-4BCC-A860-AAAAAAAAAAAA");
-            var user2 = new Guid("62FA647C-AD54-4BCC-A860-FFFFFFFFFFFF");
+            var user1 = "62FA647C-AD54-4BCC-A860-AAAAAAAAAAAA";
+            var user2 = "62FA647C-AD54-4BCC-A860-FFFFFFFFFFFF";
 
             var cellar1 = new CellarTO
             {

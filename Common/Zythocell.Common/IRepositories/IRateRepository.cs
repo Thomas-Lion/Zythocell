@@ -7,7 +7,7 @@ namespace Zythocell.Common.IRepositories
 {
     public interface IRateRepository : IRepository<RateTO>
     {
-        public List<RateTO> OrderByRate(Guid userId);
-        public ICollection<RateTO> GetByUser(Guid userId);
+        public List<RateTO> OrderByRate(string userId);
+        public ICollection<RateTO> GetByUser(string userId);
     }
 }

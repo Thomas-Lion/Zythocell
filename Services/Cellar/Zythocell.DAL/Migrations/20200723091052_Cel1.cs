@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Zythocell.DAL.Migrations
 {
-    public partial class v1 : Migration
+    public partial class Cel1 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -33,7 +33,7 @@ namespace Zythocell.DAL.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    UserId = table.Column<Guid>(nullable: false),
+                    UserId = table.Column<string>(nullable: true),
                     BeverageId = table.Column<int>(nullable: false),
                     Quantity = table.Column<int>(nullable: false),
                     Date = table.Column<DateTime>(nullable: false),
@@ -50,7 +50,7 @@ namespace Zythocell.DAL.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    UserId = table.Column<Guid>(nullable: false),
+                    UserId = table.Column<string>(nullable: true),
                     BeverageId = table.Column<int>(nullable: false),
                     Rating = table.Column<double>(nullable: false),
                     Comment = table.Column<string>(nullable: true)

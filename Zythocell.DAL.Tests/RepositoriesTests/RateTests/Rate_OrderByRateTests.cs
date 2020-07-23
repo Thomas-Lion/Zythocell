@@ -40,7 +40,7 @@ namespace Zythocell.DAL.Tests.RepositoriesTests.RateTests
             var addedBeverage = BRepo.Insert(beverage);
             BRepo.Save();
 
-            var user = new Guid("62FA647C-AD54-4BCC-A860-AAAAAAAAAAAA");
+            var user = "62FA647C-AD54-4BCC-A860-AAAAAAAAAAAA";
 
             var rate1 = new RateTO
             {
@@ -102,7 +102,7 @@ namespace Zythocell.DAL.Tests.RepositoriesTests.RateTests
             var context = new ZythocellContext(options);
             IRateRepository RRepo = new RateRepository(context);
 
-            var user = new Guid();
+            var user = "";
 
             Assert.ThrowsException<ArgumentNullException>(() => RRepo.OrderByRate(user));
         }

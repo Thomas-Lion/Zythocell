@@ -69,7 +69,7 @@ namespace Zythocell.DAL.Migrations
                     b.Property<int>("Quantity")
                         .HasColumnType("INTEGER");
 
-                    b.Property<Guid>("UserId")
+                    b.Property<string>("UserId")
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
@@ -92,7 +92,7 @@ namespace Zythocell.DAL.Migrations
                     b.Property<double>("Rating")
                         .HasColumnType("REAL");
 
-                    b.Property<Guid>("UserId")
+                    b.Property<string>("UserId")
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");

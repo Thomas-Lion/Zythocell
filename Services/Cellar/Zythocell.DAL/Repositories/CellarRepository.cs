@@ -35,9 +35,9 @@ namespace Zythocell.DAL.Repositories
             return cellar.ToTO();
         }
 
-        public ICollection<CellarTO> GetByUser(Guid userId)
+        public ICollection<CellarTO> GetByUser(string userId)
         {
-            if (userId == Guid.Empty)
+            if ( string.IsNullOrEmpty(userId))
             {
                 throw new ArgumentNullException();
             }
@@ -50,7 +50,7 @@ namespace Zythocell.DAL.Repositories
 
         public CellarTO Insert(CellarTO entity)
         {
-            if (entity is null || entity.UserId == Guid.Empty || entity.BeverageId <= 0)
+            if (entity is null || string.IsNullOrEmpty(entity.UserId) || entity.BeverageId <= 0)
             {
                 throw new ArgumentNullException();
             }
@@ -66,9 +66,9 @@ namespace Zythocell.DAL.Repositories
         /*
          * Order By Ascending Older to Newer
          */
-        public List<CellarTO> OrderByDate(Guid userId)
+        public List<CellarTO> OrderByDate(string userId)
         {
-            if (userId == Guid.Empty)
+            if (string.IsNullOrEmpty(userId))
             {
                 throw new ArgumentNullException();
             }

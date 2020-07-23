@@ -39,7 +39,7 @@ namespace Zythocell.DAL.Tests.RepositoriesTests.RateTests
             var addedBeverage = BRepo.Insert(beverage);
             BRepo.Save();
 
-            var user = new Guid("62FA647C-AD54-4BCC-A860-E5A2664B019D");
+            var user = "62FA647C-AD54-4BCC-A860-E5A2664B019D";
 
             var rate = new RateTO
             {
@@ -83,7 +83,7 @@ namespace Zythocell.DAL.Tests.RepositoriesTests.RateTests
             var addedBeverage = BRepo.Insert(beverage);
             BRepo.Save();
 
-            var user = new Guid("62FA647C-AD54-4BCC-A860-E5A2664B019D");
+            var user = "62FA647C-AD54-4BCC-A860-E5A2664B019D";
 
             var rate = new RateTO
             {
@@ -124,8 +124,8 @@ namespace Zythocell.DAL.Tests.RepositoriesTests.RateTests
             var addedBeverage = BRepo.Insert(beverage);
             BRepo.Save();
 
-            var user1 = new Guid("62FA647C-AD54-4BCC-A860-E5A2664B019D");
-            var user2 = new Guid("62FA647C-AD54-4BCC-A860-FFFFFFFFFFFF");
+            var user1 = "62FA647C-AD54-4BCC-A860-E5A2664B019D";
+            var user2 = "62FA647C-AD54-4BCC-A860-FFFFFFFFFFFF";
 
             var rate = new RateTO
             {

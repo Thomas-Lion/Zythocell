@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Zythocell.Identity
 {
-    public class IdentityContext : IdentityDbContext<AppUser, AppUserRole, Guid>
+    public class IdentityContext : IdentityDbContext<AppUser, AppUserRole, string>
     {
         public IdentityContext(DbContextOptions options) : base(options)
         {

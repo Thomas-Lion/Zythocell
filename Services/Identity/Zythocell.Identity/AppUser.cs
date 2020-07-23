@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Zythocell.Identity
 {
-    public class AppUser : IdentityUser<Guid>
+    public class AppUser : IdentityUser<string>
     {
         public AppUser()
         {
@@ -15,7 +15,6 @@ namespace Zythocell.Identity
         {
         }
 
-        public Guid Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
     }

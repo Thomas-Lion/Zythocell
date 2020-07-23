@@ -14,6 +14,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Zythocell.Identity;
 using Zythocell.DAL.Context;
+using Zythocell.DAL.Repositories;
+using Zythocell.Common.IRepositories;
 
 namespace Zythocell.Web
 {
@@ -54,6 +56,10 @@ namespace Zythocell.Web
                     .AddDefaultUI()
                     .AddEntityFrameworkStores<IdentityContext>()
                     .AddDefaultTokenProviders();
+
+            services.AddTransient<ICellarRepository, CellarRepository>();
+            services.AddTransient<IBeverageRepository, BeverageRepository>();
+            services.AddTransient<IRateRepository, RateRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

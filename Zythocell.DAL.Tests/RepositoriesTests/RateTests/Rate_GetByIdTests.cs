@@ -39,7 +39,7 @@ namespace Zythocell.DAL.Tests.RepositoriesTests.RateTests
             var addedBeverage = BRepo.Insert(beverage);
             BRepo.Save();
 
-            var user = new Guid("62FA647C-AD54-4BCC-A860-E5A2664B019D");
+            var user = "62FA647C-AD54-4BCC-A860-E5A2664B019D";
 
             var rate = new RateTO
             {

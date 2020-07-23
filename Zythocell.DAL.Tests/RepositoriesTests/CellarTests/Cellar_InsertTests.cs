@@ -39,7 +39,7 @@ namespace Zythocell.DAL.Tests.RepositoriesTests.CellarTests
             var addedBeverage = BRepo.Insert(beverage);
             BRepo.Save();
 
-            var user = new Guid("62FA647C-AD54-4BCC-A860-E5A2664B019D");
+            var user = "62FA647C-AD54-4BCC-A860-E5A2664B019D";
 
             var cellar = new CellarTO
             {
@@ -92,7 +92,7 @@ namespace Zythocell.DAL.Tests.RepositoriesTests.CellarTests
             var addedBeverage = BRepo.Insert(beverage);
             BRepo.Save();
 
-            var user = new Guid();
+            var user = "";
 
             var cellar = new CellarTO
             {
@@ -113,7 +113,7 @@ namespace Zythocell.DAL.Tests.RepositoriesTests.CellarTests
             var context = new ZythocellContext(options);
             ICellarRepository CRepo = new CellarRepository(context);
 
-            var user = new Guid("62FA647C-AD54-4BCC-A860-E5A2664B019D");
+            var user = "62FA647C-AD54-4BCC-A860-E5A2664B019D";
 
             var cellar = new CellarTO
             {
@@ -150,7 +150,7 @@ namespace Zythocell.DAL.Tests.RepositoriesTests.CellarTests
             var addedBeverage = BRepo.Insert(beverage);
             BRepo.Save();
 
-            var user = new Guid("62FA647C-AD54-4BCC-A860-E5A2664B019D");
+            var user = "62FA647C-AD54-4BCC-A860-E5A2664B019D";
 
             var cellar = new CellarTO
             {

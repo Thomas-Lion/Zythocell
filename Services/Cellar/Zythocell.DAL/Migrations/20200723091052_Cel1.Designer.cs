@@ -9,8 +9,8 @@ using Zythocell.DAL.Context;
 namespace Zythocell.DAL.Migrations
 {
     [DbContext(typeof(ZythocellContext))]
-    [Migration("20200723075301_v1")]
-    partial class v1
+    [Migration("20200723091052_Cel1")]
+    partial class Cel1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -71,7 +71,7 @@ namespace Zythocell.DAL.Migrations
                     b.Property<int>("Quantity")
                         .HasColumnType("INTEGER");
 
-                    b.Property<Guid>("UserId")
+                    b.Property<string>("UserId")
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
@@ -94,7 +94,7 @@ namespace Zythocell.DAL.Migrations
                     b.Property<double>("Rating")
                         .HasColumnType("REAL");
 
-                    b.Property<Guid>("UserId")
+                    b.Property<string>("UserId")
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");

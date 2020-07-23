@@ -40,7 +40,7 @@ namespace Zythocell.DAL.Tests.RepositoriesTests.CellarTests
             var addedBeverage = BRepo.Insert(beverage);
             BRepo.Save();
 
-            var user = new Guid("62FA647C-AD54-4BCC-A860-AAAAAAAAAAAA");
+            var user = "62FA647C-AD54-4BCC-A860-AAAAAAAAAAAA";
 
             var cellar4 = new CellarTO
             {
@@ -101,7 +101,7 @@ namespace Zythocell.DAL.Tests.RepositoriesTests.CellarTests
             var context = new ZythocellContext(options);
             ICellarRepository CRepo = new CellarRepository(context);
 
-            var user = new Guid();
+            var user = "";
 
             Assert.ThrowsException<ArgumentNullException>(() => CRepo.OrderByDate(user));
         }

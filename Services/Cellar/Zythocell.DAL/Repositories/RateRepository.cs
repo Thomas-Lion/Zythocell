@@ -35,9 +35,9 @@ namespace Zythocell.DAL.Repositories
             return rate.ToTO();
         }
 
-        public ICollection<RateTO> GetByUser(Guid userId)
+        public ICollection<RateTO> GetByUser(string userId)
         {
-            if (userId == Guid.Empty)
+            if (string.IsNullOrEmpty(userId))
             {
                 throw new ArgumentNullException();
             }
@@ -50,7 +50,7 @@ namespace Zythocell.DAL.Repositories
 
         public RateTO Insert(RateTO entity)
         {
-            if (entity is null || entity.UserId == Guid.Empty || entity.BeverageId <= 0)
+            if (entity is null || string.IsNullOrEmpty(entity.UserId) || entity.BeverageId <= 0)
             {
                 throw new ArgumentNullException();
             }
@@ -69,9 +69,9 @@ namespace Zythocell.DAL.Repositories
         /*
          *  Order By Descending Best to Bad
          */
-        public List<RateTO> OrderByRate(Guid userId)
+        public List<RateTO> OrderByRate(string userId)
         {
-            if (userId == Guid.Empty)
+            if (string.IsNullOrEmpty(userId))
             {
                 throw new ArgumentNullException();
             }

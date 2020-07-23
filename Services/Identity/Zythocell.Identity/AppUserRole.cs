@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Zythocell.Identity
 {
-    public class AppUserRole : IdentityRole<Guid>
+    public class AppUserRole : IdentityRole<string>
     {
         public AppUserRole()
         {
