@@ -86,6 +86,10 @@ namespace Zythocell.DAL.Tests.RepositoriesTests.RateTests
             var result = RRepo.OrderByRate(user);
 
             Assert.AreEqual(result[0].Rating, expectedList[0].Rating);
+            Assert.AreEqual(result[0].Id, expectedList[0].Id);
+            Assert.AreEqual(result[0].BeverageId, expectedList[0].BeverageId);
+            Assert.AreEqual(result[0].Comment, expectedList[0].Comment);
+            Assert.AreEqual(result[0].UserId, expectedList[0].UserId);
             Assert.AreEqual(result[1].Rating, expectedList[1].Rating);
             Assert.AreEqual(result[2].Rating, expectedList[2].Rating);
             Assert.AreEqual(result[3].Rating, expectedList[3].Rating);

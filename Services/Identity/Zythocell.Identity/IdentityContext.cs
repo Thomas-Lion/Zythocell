@@ -12,7 +12,7 @@ namespace Zythocell.Identity
         {
         }
 
-        protected IdentityContext()
+        public IdentityContext()
         {
         }
 
