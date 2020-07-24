@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="UsesCases\" />
+    <ProjectReference Include="..\..\..\Common\Zythocell.Common\Zythocell.Common.csproj" />
   </ItemGroup>
 
 </Project>

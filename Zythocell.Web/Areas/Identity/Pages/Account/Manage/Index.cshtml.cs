@@ -33,6 +33,12 @@ namespace Zythocell.Web.Areas.Identity.Pages.Account.Manage
 
         public class InputModel
         {
+            [Display(Name = "First Name")]
+            public string FirstName { get; set; }
+
+            [Display(Name = "Last Name")]
+            public string LastName { get; set; }
+
             [Phone]
             [Display(Name = "Phone number")]
             public string PhoneNumber { get; set; }
@@ -86,6 +92,22 @@ namespace Zythocell.Web.Areas.Identity.Pages.Account.Manage
                     StatusMessage = "Unexpected error when trying to set phone number.";
                     return RedirectToPage();
                 }
+            }
+
+            if (Input.FirstName != null)
+            {
+                var localUser = await _userManager.GetUserAsync(User);
+                localUser.FirstName = Input.FirstName;
+
+                await _userManager.UpdateAsync(user);
+            }
+            
+            if (Input.LastName != null )
+            {
+                var localUser = await _userManager.GetUserAsync(User);
+                localUser.LastName = Input.LastName;
+
+                await _userManager.UpdateAsync(user);
             }
 
             await _signInManager.RefreshSignInAsync(user);
