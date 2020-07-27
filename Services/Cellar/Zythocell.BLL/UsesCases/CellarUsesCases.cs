@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Zythocell.Common.IUsesCases;
+using Zythocell.Common.Interfaces.IUsesCases;
 using Zythocell.Common.TransferObject;
 
 namespace Zythocell.BLL.UsesCases

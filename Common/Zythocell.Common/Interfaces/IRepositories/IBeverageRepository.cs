@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Zythocell.Common.TransferObject;
 
-namespace Zythocell.Common.IRepositories
+namespace Zythocell.Common.Interfaces.IRepositories
 {
     public interface IBeverageRepository : IRepository<BeverageTO>
     {

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Zythocell.Common.TransferObject;
 
-namespace Zythocell.Common.IUsesCases
+namespace Zythocell.Common.Interfaces.IUsesCases
 {
     public interface ICellarUsesCases
     {

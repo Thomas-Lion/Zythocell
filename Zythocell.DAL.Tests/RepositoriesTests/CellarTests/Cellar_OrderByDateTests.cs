@@ -6,7 +6,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using Zythocell.Common.Enum;
-using Zythocell.Common.IRepositories;
+using Zythocell.Common.Interfaces.IRepositories;
 using Zythocell.Common.TransferObject;
 using Zythocell.DAL.Context;
 using Zythocell.DAL.Entities;

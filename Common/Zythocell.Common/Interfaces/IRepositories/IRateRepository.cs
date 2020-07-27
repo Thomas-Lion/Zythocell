@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Text;
 using Zythocell.Common.TransferObject;
 
-namespace Zythocell.Common.IRepositories
-{
+namespace Zythocell.Common.Interfaces.IRepositories
+{ 
     public interface IRateRepository : IRepository<RateTO>
     {
         public List<RateTO> OrderByRate(Guid userId);

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Zythocell.Common.IRepositories
+namespace Zythocell.Common.Interfaces.IRepositories
 {
     public interface IRepository<E> where E : class
     {
