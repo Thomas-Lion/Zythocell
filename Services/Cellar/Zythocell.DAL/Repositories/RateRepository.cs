@@ -35,7 +35,7 @@ namespace Zythocell.DAL.Repositories
             return rate.ToTO();
         }
 
-        public ICollection<RateTO> GetByUser(Guid userId)
+        public List<RateTO> GetByUser(Guid userId)
         {
             if (userId == Guid.Empty)
             {

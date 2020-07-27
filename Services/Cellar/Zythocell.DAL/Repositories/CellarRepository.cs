@@ -35,7 +35,7 @@ namespace Zythocell.DAL.Repositories
             return cellar.ToTO();
         }
 
-        public ICollection<CellarTO> GetByUser(Guid userId)
+        public List<CellarTO> GetByUser(Guid userId)
         {
             if (userId == Guid.Empty)
             {

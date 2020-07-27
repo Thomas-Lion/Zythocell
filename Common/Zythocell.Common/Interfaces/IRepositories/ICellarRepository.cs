@@ -7,7 +7,7 @@ namespace Zythocell.Common.Interfaces.IRepositories
 {
     public interface ICellarRepository : IRepository<CellarTO>
     {
-        public ICollection<CellarTO> GetByUser(Guid userId);
+        public List<CellarTO> GetByUser(Guid userId);
         public List<CellarTO> OrderByDate(Guid userId);
     }
 }

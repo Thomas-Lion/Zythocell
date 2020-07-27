@@ -13,9 +13,9 @@ namespace Zythocell.DAL
         private readonly ZythocellContext Context;
         private bool disposed = false;
 
-        private IBeverageRepository beverageRepository;
-        private ICellarRepository cellarRepository;
-        private IRateRepository rateRepository;
+        private IBeverageRepository beverageRepository { get; set; }
+        private ICellarRepository cellarRepository { get; set; }
+        private IRateRepository rateRepository { get; set; }
 
         public UnitOfWork(ZythocellContext context)
         {
@@ -34,6 +34,7 @@ namespace Zythocell.DAL
                 {
                     Context.Dispose();
                 }
+                disposed = true;
             }
         }
         public void Dispose()

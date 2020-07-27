@@ -34,7 +34,7 @@ namespace Zythocell.DAL.Repositories
             return beverage.ToTO();
         }
 
-        public ICollection<BeverageTO> GetAll()
+        public List<BeverageTO> GetAll()
         {
             var beverages = context.Beverages.Where(x => x.IsDeleted == false)
                                              .Select(x => x.ToTO())

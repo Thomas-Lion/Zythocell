@@ -20,8 +20,8 @@ namespace Zythocell.Common.Interfaces.IUsesCases
         List<CellarTO> SearchEntry(string search);
 
 
-        RateTO CreateANewRating(Guid user, int beverageId);
-        RateTO UpdateARating(RateTO rating);
+        RateTO CreateANewRating(RateTO rate);
+        RateTO UpdateARating(RateTO rate);
         //bool DeleteARating(Guid user,RateTO rating);
         List<RateTO> GetAllRating(Guid user);
     }

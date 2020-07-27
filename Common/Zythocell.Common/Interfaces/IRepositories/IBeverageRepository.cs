@@ -7,7 +7,7 @@ namespace Zythocell.Common.Interfaces.IRepositories
 {
     public interface IBeverageRepository : IRepository<BeverageTO>
     {
-        public ICollection<BeverageTO> GetAll();
+        public List<BeverageTO> GetAll();
         public bool Delete(BeverageTO entity);        
     }
 }

@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\Common\Zythocell.Common\Zythocell.Common.csproj" />
+    <ProjectReference Include="..\Zythocell.DAL\Zythocell.DAL.csproj" />
   </ItemGroup>
 
 </Project>
