@@ -20,6 +20,12 @@ namespace Zythocell.DAL.Repositories
             this.context = context;
         }
 
+        public List<RateTO> GetAll()
+        {
+            var result = context.Rates.Select(x => x.ToTO()).ToList();
+            return result;
+        }
+
         public RateTO GetById(int Id)
         {
             if (Id <= 0)

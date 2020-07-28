@@ -10,5 +10,6 @@ namespace Zythocell.Common.Interfaces.IRepositories
         public E Update(E entity);
         public int Save();
         public E GetById(int Id);
+        public List<E> GetAll();
     }
 }

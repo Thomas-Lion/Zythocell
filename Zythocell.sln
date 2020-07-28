@@ -23,7 +23,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zythocell.Identity", "Servi
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zythocell.DAL.Tests", "Zythocell.DAL.Tests\Zythocell.DAL.Tests.csproj", "{51F06BDD-9137-4E58-B625-615F84DDA256}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zythocell.Web", "Zythocell.Web\Zythocell.Web.csproj", "{A2BDBC52-385B-4794-8943-82F60D1B0F2C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zythocell.Web", "Zythocell.Web\Zythocell.Web.csproj", "{A2BDBC52-385B-4794-8943-82F60D1B0F2C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zythocell.BLL.Tests", "Zythocell.BLL.Tests\Zythocell.BLL.Tests.csproj", "{55C3E6B2-0833-4A53-B80F-1D8A616D82E3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -55,6 +57,10 @@ Global
 		{A2BDBC52-385B-4794-8943-82F60D1B0F2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A2BDBC52-385B-4794-8943-82F60D1B0F2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A2BDBC52-385B-4794-8943-82F60D1B0F2C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{55C3E6B2-0833-4A53-B80F-1D8A616D82E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{55C3E6B2-0833-4A53-B80F-1D8A616D82E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{55C3E6B2-0833-4A53-B80F-1D8A616D82E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{55C3E6B2-0833-4A53-B80F-1D8A616D82E3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -68,6 +74,7 @@ Global
 		{C5D1FABD-BEE5-47CF-8816-7741243001AC} = {3861C859-A168-4BCE-BC01-7D62E4B9941E}
 		{51F06BDD-9137-4E58-B625-615F84DDA256} = {D9B36C92-3AA5-4163-BA57-5AF65FD243D1}
 		{A2BDBC52-385B-4794-8943-82F60D1B0F2C} = {BE478F33-40C4-4E5E-863F-876DF1739F4A}
+		{55C3E6B2-0833-4A53-B80F-1D8A616D82E3} = {D9B36C92-3AA5-4163-BA57-5AF65FD243D1}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {80E05E61-3CA5-4666-8AA4-B3906D8ADC94}

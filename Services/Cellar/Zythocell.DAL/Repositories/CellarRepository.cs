@@ -20,6 +20,12 @@ namespace Zythocell.DAL.Repositories
             this.context = context;
         }
 
+        public List<CellarTO> GetAll()
+        {
+            var result = context.Cellars.Select(x => x.ToTO()).ToList();
+            return result;
+        }
+
         public CellarTO GetById(int Id)
         {
             if (Id <= 0)

@@ -8,7 +8,6 @@ using Zythocell.Common.Enum;
 using Zythocell.Common.Interfaces.IRepositories;
 using Zythocell.Common.TransferObject;
 using Zythocell.DAL.Context;
-using Zythocell.DAL.Entities;
 using Zythocell.DAL.Repositories;
 
 namespace Zythocell.DAL.Tests.RepositoriesTests.BeverageTests
