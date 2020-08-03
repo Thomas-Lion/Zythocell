@@ -9,5 +9,6 @@ namespace Zythocell.Common.Interfaces.IRepositories
     {
         public List<RateTO> OrderByRate(Guid userId);
         public List<RateTO> GetByUser(Guid userId);
+        public bool Delete(RateTO rate);
     }
 }

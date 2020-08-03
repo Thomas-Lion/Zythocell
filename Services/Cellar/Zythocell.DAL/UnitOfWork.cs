@@ -13,13 +13,13 @@ namespace Zythocell.DAL
         private readonly ZythocellContext Context;
         private bool disposed = false;
 
-        private IBeverageRepository beverageRepository { get; set; }
-        private ICellarRepository cellarRepository { get; set; }
-        private IRateRepository rateRepository { get; set; }
+        private IBeverageRepository beverageRepository;
+        private ICellarRepository cellarRepository;
+        private IRateRepository rateRepository;
 
         public UnitOfWork(ZythocellContext context)
         {
-            Context = context;
+            Context = context ?? throw new ArgumentNullException(nameof(context));
         }
 
         public IBeverageRepository BeverageRepository => beverageRepository ??= new BeverageRepository(Context);
@@ -37,6 +37,7 @@ namespace Zythocell.DAL
                 disposed = true;
             }
         }
+
         public void Dispose()
         {
             Dispose(true);

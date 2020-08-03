@@ -20,6 +20,19 @@ namespace Zythocell.DAL.Repositories
             this.context = context;
         }
 
+        public bool Delete(RateTO rate)
+        {
+            if (rate is null)
+                throw new ArgumentNullException(nameof(rate));
+            if (rate.Id <= 0)
+                throw new ArgumentException(nameof(rate));
+            if (rate.IsDeleted)
+                throw new ArgumentException(nameof(rate));
+
+            rate.IsDeleted = true;
+            return Update(rate).IsDeleted;
+        }
+
         public List<RateTO> GetAll()
         {
             var result = context.Rates.Select(x => x.ToTO()).ToList();
@@ -29,24 +42,19 @@ namespace Zythocell.DAL.Repositories
         public RateTO GetById(int Id)
         {
             if (Id <= 0)
-            {
                 throw new ArgumentException();
-            }
             var rate = context.Rates.AsNoTracking()
                                     .FirstOrDefault(x => x.Id == Id);
             if (rate == null)
-            {
                 throw new NullReferenceException();
-            }
+
             return rate.ToTO();
         }
 
         public List<RateTO> GetByUser(Guid userId)
         {
             if (userId == Guid.Empty)
-            {
                 throw new ArgumentNullException();
-            }
 
             var rates = context.Rates.Where(x => x.UserId == userId)
                                      .Select(x => x.ToTO())
@@ -57,18 +65,15 @@ namespace Zythocell.DAL.Repositories
         public RateTO Insert(RateTO entity)
         {
             if (entity is null || entity.UserId == Guid.Empty || entity.BeverageId <= 0)
-            {
                 throw new ArgumentNullException();
-            }
             if (entity.Rating < 0)
-            {
                 throw new ArgumentException();
-            }
+
             if (entity.Id != 0)
-            {
                 return entity;
-            }
+
             var result = context.Rates.Add(entity.ToEF());
+
             return result.Entity.ToTO();
         }
 
@@ -78,9 +83,7 @@ namespace Zythocell.DAL.Repositories
         public List<RateTO> OrderByRate(Guid userId)
         {
             if (userId == Guid.Empty)
-            {
                 throw new ArgumentNullException();
-            }
 
             var rates = context.Rates.OrderByDescending(x => x.Rating)
                                      .Select(x => x.ToTO())
@@ -104,15 +107,13 @@ namespace Zythocell.DAL.Repositories
             //check if userId is updated by looking the id of the entity 
             // test entity.id update and see if this if is triggered
             if (entity.UserId != GetById(entity.Id).UserId)
-            {
                 throw new ArgumentException();
-            }
-
+            
             var updated = context.Rates.FirstOrDefault(e => e.Id == entity.Id);
+
             if (updated != default)
-            {
                 updated.UpdateFromDetached(entity.ToEF());
-            }
+
             Save();
 
             return context.Rates.Update(updated).Entity.ToTO();

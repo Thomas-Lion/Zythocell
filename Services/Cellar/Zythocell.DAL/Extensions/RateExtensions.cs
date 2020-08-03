@@ -21,7 +21,8 @@ namespace Zythocell.DAL.Extensions
                 BeverageId = rate.BeverageId,
                 UserId = rate.UserId,
                 Comment = rate.Comment,
-                Rating = rate.Rating
+                Rating = rate.Rating,
+                IsDeleted = rate.IsDeleted
             };
         }
 
@@ -38,31 +39,33 @@ namespace Zythocell.DAL.Extensions
                 BeverageId = rate.BeverageId,
                 UserId = rate.UserId,
                 Comment = rate.Comment,
-                Rating = rate.Rating
+                Rating = rate.Rating,
+                IsDeleted = rate.IsDeleted
             };
         }
 
-        public static RateEF UpdateFromDetached(this RateEF qAttach, RateEF qDetached)
+        public static RateEF UpdateFromDetached(this RateEF rAttach, RateEF rDetached)
         {
-            if (qAttach is null)
+            if (rAttach is null)
                 throw new ArgumentNullException();
 
-            if (qDetached is null)
+            if (rDetached is null)
                 throw new NullReferenceException();
 
-            if (qAttach.Id != qDetached.Id)
+            if (rAttach.Id != rDetached.Id)
                 throw new Exception("Cannot update Rating because it is not the same ID.");
 
-            if ((qAttach != default) && (qDetached != default))
+            if ((rAttach != default) && (rDetached != default))
             {
-                qAttach.Id = qDetached.Id;
-                qAttach.BeverageId = qDetached.BeverageId;
-                qAttach.UserId = qDetached.UserId;
-                qAttach.Rating = qDetached.Rating;
-                qAttach.Comment = qDetached.Comment;
+                rAttach.Id = rDetached.Id;
+                rAttach.BeverageId = rDetached.BeverageId;
+                rAttach.UserId = rDetached.UserId;
+                rAttach.Rating = rDetached.Rating;
+                rAttach.Comment = rDetached.Comment;
+                rAttach.IsDeleted = rDetached.IsDeleted;
             }
 
-            return qAttach;
+            return rAttach;
         }
     }
 }

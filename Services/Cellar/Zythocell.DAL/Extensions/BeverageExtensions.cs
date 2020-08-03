@@ -50,32 +50,32 @@ namespace Zythocell.DAL.Extensions
             };
         }
 
-        public static BeverageEF UpdateFromDetached(this BeverageEF qAttach, BeverageEF qDetached)
+        public static BeverageEF UpdateFromDetached(this BeverageEF bAttach, BeverageEF bDetached)
         {
-            if (qAttach is null)
+            if (bAttach is null)
                 throw new ArgumentNullException();
 
-            if (qDetached is null)
+            if (bDetached is null)
                 throw new NullReferenceException();
 
-            if (qAttach.Id != qDetached.Id)
+            if (bAttach.Id != bDetached.Id)
                 throw new Exception("Cannot update Beverage because it is not the same ID.");
 
-            if ((qAttach != default) && (qDetached != default))
+            if ((bAttach != default) && (bDetached != default))
             {
-                qAttach.Id = qDetached.Id;
-                qAttach.BeveragType = qDetached.BeveragType;
-                qAttach.Name = qDetached.Name;
-                qAttach.Country = qDetached.Country;
-                qAttach.Productor = qDetached.Productor;
-                qAttach.Size = qDetached.Size;
-                qAttach.Alcohol = qDetached.Alcohol;
-                qAttach.Color = qDetached.Color;
-                qAttach.IsDeleted = qDetached.IsDeleted;
+                bAttach.Id = bDetached.Id;
+                bAttach.BeveragType = bDetached.BeveragType;
+                bAttach.Name = bDetached.Name;
+                bAttach.Country = bDetached.Country;
+                bAttach.Productor = bDetached.Productor;
+                bAttach.Size = bDetached.Size;
+                bAttach.Alcohol = bDetached.Alcohol;
+                bAttach.Color = bDetached.Color;
+                bAttach.IsDeleted = bDetached.IsDeleted;
                 
             }
 
-            return qAttach;
+            return bAttach;
         }
     }
 }

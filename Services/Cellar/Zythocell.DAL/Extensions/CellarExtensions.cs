@@ -21,7 +21,7 @@ namespace Zythocell.DAL.Extensions
                 BeverageId = cellar.BeverageId,
                 UserId = cellar.UserId,
                 Quantity = cellar.Quantity,
-                Age = cellar.Age,
+                AgeBeverage = cellar.Age,
                 Date = cellar.Date
             };
         }
@@ -39,32 +39,32 @@ namespace Zythocell.DAL.Extensions
                 BeverageId = cellar.BeverageId,
                 UserId = cellar.UserId,
                 Quantity = cellar.Quantity,
-                Age = cellar.Age,
+                Age = cellar.AgeBeverage,
                 Date = cellar.Date
             };
         }
 
-        public static CellarEF UpdateFromDetached(this CellarEF qAttach, CellarEF qDetached)
+        public static CellarEF UpdateFromDetached(this CellarEF cAttach, CellarEF cDetached)
         {
-            if (qAttach is null)
+            if (cAttach is null)
                 throw new ArgumentNullException();
 
-            if (qDetached is null)
+            if (cDetached is null)
                 throw new NullReferenceException();
 
-            if (qAttach.Id != qDetached.Id)
+            if (cAttach.Id != cDetached.Id)
                 throw new Exception("Cannot update Cellar because it is not the same ID.");
 
-            if ((qAttach != default) && (qDetached != default))
+            if ((cAttach != default) && (cDetached != default))
             {
-                qAttach.Id = qDetached.Id;
-                qAttach.BeverageId = qDetached.BeverageId;
-                qAttach.Quantity = qDetached.Quantity;
-                qAttach.Age = qDetached.Age;
-                qAttach.Date = qDetached.Date;
+                cAttach.Id = cDetached.Id;
+                cAttach.BeverageId = cDetached.BeverageId;
+                cAttach.Quantity = cDetached.Quantity;
+                cAttach.Age = cDetached.Age;
+                cAttach.Date = cDetached.Date;
             }
 
-            return qAttach;
+            return cAttach;
         }
     }
 }

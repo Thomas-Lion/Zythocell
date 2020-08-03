@@ -43,7 +43,7 @@ namespace Zythocell.DAL.Tests.RepositoriesTests.CellarTests
 
             var cellar4 = new CellarTO
             {
-                Age = DateTime.Now.AddDays(-50),
+                AgeBeverage = DateTime.Now.AddDays(-50),
                 BeverageId = addedBeverage.Id,
                 UserId = user,
                 Date = DateTime.Now,
@@ -51,7 +51,7 @@ namespace Zythocell.DAL.Tests.RepositoriesTests.CellarTests
             };
             var cellar3 = new CellarTO
             {
-                Age = DateTime.Now.AddDays(-666),
+                AgeBeverage = DateTime.Now.AddDays(-666),
                 BeverageId = addedBeverage.Id,
                 UserId = user,
                 Date = DateTime.Now.AddHours(12),
@@ -59,7 +59,7 @@ namespace Zythocell.DAL.Tests.RepositoriesTests.CellarTests
             };
             var cellar2 = new CellarTO
             {
-                Age = DateTime.Now.AddDays(-15),
+                AgeBeverage = DateTime.Now.AddDays(-15),
                 BeverageId = addedBeverage.Id,
                 UserId = user,
                 Date = DateTime.Now.AddDays(60),
@@ -67,7 +67,7 @@ namespace Zythocell.DAL.Tests.RepositoriesTests.CellarTests
             };
             var cellar1 = new CellarTO
             {
-                Age = DateTime.Now.AddDays(-60),
+                AgeBeverage = DateTime.Now.AddDays(-60),
                 BeverageId = addedBeverage.Id,
                 UserId = user,
                 Date = DateTime.Now.AddDays(365),

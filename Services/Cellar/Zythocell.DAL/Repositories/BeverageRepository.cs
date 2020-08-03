@@ -101,9 +101,9 @@ namespace Zythocell.DAL.Repositories
             }
 
             entity.IsDeleted = true;
-            var result = Update(entity);
 
-            return result != null;
+            return Update(entity).IsDeleted;
+
         }
     }
 }

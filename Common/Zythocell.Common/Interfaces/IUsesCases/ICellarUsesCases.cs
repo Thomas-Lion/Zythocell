@@ -8,7 +8,7 @@ namespace Zythocell.Common.Interfaces.IUsesCases
     public interface ICellarUsesCases
     {
         BeverageTO CreateANewBeverage(BeverageTO beverage);
-        //admin DeleteBeverage
+        //ADMIN bool DeleteBeverage(BeverageTO beverage);
         BeverageTO UpdateABeverage(BeverageTO beverage);
         BeverageTO GetABeverage(string name);
 
@@ -18,11 +18,11 @@ namespace Zythocell.Common.Interfaces.IUsesCases
         List<CellarTO> GetAllCellar(Guid user);
         //Calendar GetHistory(Guid user)
         List<CellarTO> SearchEntry(string search);
-
+        CellarTO MinusOne(CellarTO cellar);
 
         RateTO CreateANewRating(RateTO rate);
         RateTO UpdateARating(RateTO rate);
-        //bool DeleteARating(Guid user,RateTO rating);
+        bool DeleteARating(Guid user,RateTO rating);
         List<RateTO> GetAllRating(Guid user);
     }
 }
