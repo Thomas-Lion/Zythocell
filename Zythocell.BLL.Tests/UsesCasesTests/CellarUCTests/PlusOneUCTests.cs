@@ -9,10 +9,8 @@ using Zythocell.Common.TransferObject;
 
 namespace Zythocell.BLL.Tests.UsesCasesTests.CellarUCTests
 {
-
-
     [TestClass]
-    public class MinusOneUCTests
+    public class PlusOneUCTests
     {
         [TestMethod]
         public void MinusOne_Succesfull()
@@ -21,7 +19,7 @@ namespace Zythocell.BLL.Tests.UsesCasesTests.CellarUCTests
             var userA = new Guid("AAAAAAAA-AAAA-AAAA-AAAA-AAAAAAAAAAAA");
 
             mockUOW.Setup(x => x.CellarRepository.Update(It.IsAny<CellarTO>()))
-                   .Returns(new CellarTO() { Id = 1, BeverageId = 1, UserId = userA, Quantity = 0, AgeBeverage = DateTime.Now, Date = DateTime.Now });
+                   .Returns(new CellarTO() { Id = 1, BeverageId = 1, UserId = userA, Quantity = 2, AgeBeverage = DateTime.Now, Date = DateTime.Now });
 
             var sut = new CellarUsesCases(mockUOW.Object);
             var cellar = new CellarTO()
@@ -33,7 +31,7 @@ namespace Zythocell.BLL.Tests.UsesCasesTests.CellarUCTests
                 Date = DateTime.Now
             };
 
-            var updated = sut.MinusOne(cellar);
+            var updated = sut.PlusOne(cellar);
 
             Assert.IsNotNull(updated);
             mockUOW.Verify(u => u.CellarRepository.Update(It.IsAny<CellarTO>()), Times.Once);
@@ -46,7 +44,7 @@ namespace Zythocell.BLL.Tests.UsesCasesTests.CellarUCTests
             var userA = new Guid("AAAAAAAA-AAAA-AAAA-AAAA-AAAAAAAAAAAA");
 
             mockUOW.Setup(x => x.CellarRepository.Update(It.IsAny<CellarTO>()))
-                   .Returns(new CellarTO() { Id = 1, BeverageId = 1, UserId = userA, Quantity = 0, AgeBeverage = DateTime.Now, Date = DateTime.Now });
+                   .Returns(new CellarTO() { Id = 1, BeverageId = 1, UserId = userA, Quantity = 1, AgeBeverage = DateTime.Now, Date = DateTime.Now });
 
             var sut = new CellarUsesCases(mockUOW.Object);
             var cellar = new CellarTO()
@@ -58,7 +56,7 @@ namespace Zythocell.BLL.Tests.UsesCasesTests.CellarUCTests
                 Date = DateTime.Now
             };
 
-            var updated = sut.MinusOne(cellar);
+            var updated = sut.PlusOne(cellar);
 
             Assert.IsNotNull(updated);
             mockUOW.Verify(u => u.CellarRepository.Update(It.IsAny<CellarTO>()), Times.Once);
@@ -83,7 +81,7 @@ namespace Zythocell.BLL.Tests.UsesCasesTests.CellarUCTests
                 Date = DateTime.Now
             };
 
-            Assert.ThrowsException<ArgumentException>(() => sut.MinusOne(cellar));
+            Assert.ThrowsException<ArgumentException>(() => sut.PlusOne(cellar));
         }
     }
 }

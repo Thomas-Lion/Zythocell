@@ -1,0 +1,62 @@
+﻿@model IEnumerable<CellarVM>
+
+@{
+    ViewData["Title"] = "Cellar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Cellar</title>
+</head>
+<body>
+    <p>
+        <a asp-action="Create" class="btn btn-secondary">Create New</a>
+    </p>
+    <div class="card-columns">
+        @foreach (var item in Model)
+        {
+            <div class="card">
+                <img class="card-img flex-column align-items-start img-fluid" src="~/Img/@(item.BeverageId).jpg" alt="Picture of the bottle">
+                <div class="card-body">
+                    <div class="card-title">
+                        <div class="justify-content">
+                            <a asp-action="Details" asp-route-id="@item.CellarId">
+                                @Html.DisplayFor(modelItem => item.NameBeverage)
+                            </a>
+                            <span class="border pl-1 pr-1 float-right bg-light">
+                                <a asp-action="PlusOne" asp-route-id="@item.CellarId"><i class="fas fa-plus"></i></a>
+                            </span>
+                            <span class="border pl-1 pr-1 float-right">
+                                @Html.DisplayFor(modelItem => item.QuantityBeverage)
+                            </span>
+                            <span class="border pl-1 pr-1 float-right bg-light">
+                                <a asp-action="MinusOne" asp-route-id="@item.CellarId"><i class="fas fa-minus"></i></a>
+                            </span>
+                        </div>
+                    </div>
+                    <p>
+                        @Html.DisplayFor(modelItem => item.Alcohol)%
+                        @Html.DisplayFor(modelItem => item.SizeBottle)cl
+                    </p>
+                    <p>
+                        @Html.DisplayFor(modelItem => item.SmallDescription)
+                    </p>
+                    <p class="small">
+                        bottled the @Html.DisplayFor(modelItem => item.DateBotteling)
+                    </p>
+                </div>
+                <div class="card-footer">
+                    <div class="right btn btn-block btn-secondary">
+                        <a asp-action="Edit" asp-route-id="@item.CellarId" class="text-white"><i class="fas fa-ellipsis-h"></i></a>
+                    </div>
+                </div>
+            </div>
+
+        }
+    </div>
+</body>
+</html>

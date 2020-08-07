@@ -1,0 +1,47 @@
+[
+  {
+    "Id": 1,
+    "Name": "Peak Triple",
+    "BeveragType": 0,
+    "Country": "Belgium",
+    "Productor": "Belgium Peak Beer SR",
+    "Alcohol": 8.5,
+    "Size": 33,
+    "Color": "Brown",
+    "IsDeleted": false
+  },
+  {
+    "Id":2,
+    "Name":"Orval",
+    "BeveragType":0,
+    "Color":"Brown",
+    "Country":"Belgium",
+    "Productor":"Abbaye d'Orval",
+    "Size":33,
+    "Alcohol":6.2,
+    "IsDeleted":false
+  },
+  {
+    "Id":3,
+    "Name":"Valduc Fée Steve",
+    "BeveragType":0,
+    "Country":"Belgium",
+    "Productor":"Brasserie Coopérative Valduc-Thor",
+    "Alcohol":6.3,
+    "Size":33,
+    "Color":"Blond",
+    "IsDeleted":false
+  },
+  {
+    "Id":4,
+    "Name":"Faro",
+    "BeveragType":0,
+    "Country":"Belgium",
+    "Productor":"Lindemans",
+    "Alcohol":4.5,
+    "Size":33,
+    "Color":"Brown",
+    "IsDeleted":false
+  },
+
+]

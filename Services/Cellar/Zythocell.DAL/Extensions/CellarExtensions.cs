@@ -21,7 +21,7 @@ namespace Zythocell.DAL.Extensions
                 BeverageId = cellar.BeverageId,
                 UserId = cellar.UserId,
                 Quantity = cellar.Quantity,
-                AgeBeverage = cellar.Age,
+                AgeBeverage = cellar.AgeBeverage,
                 Date = cellar.Date
             };
         }
@@ -39,7 +39,7 @@ namespace Zythocell.DAL.Extensions
                 BeverageId = cellar.BeverageId,
                 UserId = cellar.UserId,
                 Quantity = cellar.Quantity,
-                Age = cellar.AgeBeverage,
+                AgeBeverage = cellar.AgeBeverage,
                 Date = cellar.Date
             };
         }
@@ -60,7 +60,7 @@ namespace Zythocell.DAL.Extensions
                 cAttach.Id = cDetached.Id;
                 cAttach.BeverageId = cDetached.BeverageId;
                 cAttach.Quantity = cDetached.Quantity;
-                cAttach.Age = cDetached.Age;
+                cAttach.AgeBeverage = cDetached.AgeBeverage;
                 cAttach.Date = cDetached.Date;
             }
 

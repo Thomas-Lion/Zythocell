@@ -29,6 +29,14 @@ namespace Zythocell.DAL.Context
             base.OnConfiguring(optionsBuilder);
         }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            if (modelBuilder is null)
+                throw new ArgumentNullException(nameof(modelBuilder));
+
+
+        }
+
         public DbSet<BeverageEF> Beverages { get; set; }
         public DbSet<CellarEF> Cellars { get; set; }
         public DbSet<RateEF> Rates { get; set; }

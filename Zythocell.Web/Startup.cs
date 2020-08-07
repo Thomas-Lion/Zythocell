@@ -8,12 +8,15 @@ using Microsoft.AspNetCore.Identity.UI;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.EntityFrameworkCore;
-using Zythocell.Web.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Zythocell.Identity;
 using Zythocell.DAL.Context;
+using Zythocell.Common.Interfaces;
+using Zythocell.Common.Interfaces.IUsesCases;
+using Zythocell.DAL;
+using Zythocell.BLL.UsesCases;
 
 namespace Zythocell.Web
 {
@@ -34,6 +37,10 @@ namespace Zythocell.Web
 
             services.AddDbContext<IdentityContext>(options =>
                 options.UseSqlite(@"Data Source = C:\Users\Thomas\source\repos\Zythocell\Services\Identity\Zythocell.Identity\ZythocellIdentityDb.db"));
+
+            services.AddTransient<CellarSeeder>();
+            services.AddTransient<IUnitOfWork, UnitOfWork>();
+            services.AddTransient<ICellarUsesCases, CellarUsesCases>();
 
             services.AddControllersWithViews();
             services.AddRazorPages();

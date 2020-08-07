@@ -11,6 +11,7 @@ namespace Zythocell.Common.Interfaces.IUsesCases
         //ADMIN bool DeleteBeverage(BeverageTO beverage);
         BeverageTO UpdateABeverage(BeverageTO beverage);
         BeverageTO GetABeverage(string name);
+        BeverageTO GetABeverage(int id);
 
 
         CellarTO AdditionToCellar(CellarTO cellar);
@@ -19,6 +20,7 @@ namespace Zythocell.Common.Interfaces.IUsesCases
         //Calendar GetHistory(Guid user)
         List<CellarTO> SearchEntry(string search);
         CellarTO MinusOne(CellarTO cellar);
+        CellarTO PlusOne(CellarTO cellar);
 
         RateTO CreateANewRating(RateTO rate);
         RateTO UpdateARating(RateTO rate);

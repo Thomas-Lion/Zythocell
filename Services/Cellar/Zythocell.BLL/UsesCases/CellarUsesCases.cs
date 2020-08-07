@@ -84,6 +84,13 @@ namespace Zythocell.BLL.UsesCases
             throw new NotImplementedException();
         }
 
+        public BeverageTO GetABeverage(int id)
+        {
+            if(id <= 0)
+                throw new ArgumentException("Please use a valid Id");
+            return UnitOfWork.BeverageRepository.GetById(id);
+        }
+
         public List<CellarTO> GetAllCellar(Guid user)
         {
             if (user == Guid.Empty)
@@ -115,6 +122,14 @@ namespace Zythocell.BLL.UsesCases
         {
             if (cellar.Quantity >= 1)
                 cellar.Quantity += -1;
+
+            return UpdateAnEntry(cellar);
+        }
+
+        public CellarTO PlusOne(CellarTO cellar)
+        {
+            if (cellar.Quantity >= 0)
+                cellar.Quantity += 1;
 
             return UpdateAnEntry(cellar);
         }

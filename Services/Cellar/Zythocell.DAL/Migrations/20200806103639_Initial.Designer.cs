@@ -9,14 +9,14 @@ using Zythocell.DAL.Context;
 namespace Zythocell.DAL.Migrations
 {
     [DbContext(typeof(ZythocellContext))]
-    [Migration("20200723075301_v1")]
-    partial class v1
+    [Migration("20200806103639_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "3.1.5");
+                .HasAnnotation("ProductVersion", "3.1.6");
 
             modelBuilder.Entity("Zythocell.DAL.Entities.BeverageEF", b =>
                 {
@@ -59,7 +59,7 @@ namespace Zythocell.DAL.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<DateTime>("Age")
+                    b.Property<DateTime>("AgeBeverage")
                         .HasColumnType("TEXT");
 
                     b.Property<int>("BeverageId")
@@ -90,6 +90,9 @@ namespace Zythocell.DAL.Migrations
 
                     b.Property<string>("Comment")
                         .HasColumnType("TEXT");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("INTEGER");
 
                     b.Property<double>("Rating")
                         .HasColumnType("REAL");
