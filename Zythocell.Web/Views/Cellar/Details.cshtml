@@ -1,49 +1,71 @@
 ﻿@model Zythocell.Web.Models.RateVM
 
-@{ Layout = null; }
+@{ Layout = null;}
 
-<div>
-    <h4>RateVM</h4>
-    <hr />
-    <dl class="row">
-        <dt class="col-sm-2">
+
+<div class="row">
+    <img class="card-img flex-column align-items-start img-fluid" src="~/Img/@(Model.BeverageId).jpg" alt="Picture of the bottle">
+    <div class="row">
+        <div class="col-md">
             @Html.DisplayNameFor(model => model.Rating)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Rating)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Comment)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Comment)
-        </dd>
-        <dt class="col-sm-2">
+        </div>
+    </div>
+    <div class="col-md-9">
+        @Html.DisplayFor(model => model.Rating)
+    </div>
+</div>
+@if (Model.SmallDescription != null)
+{
+    <div class="row">
+        <div class="col-md-3">
             @Html.DisplayNameFor(model => model.SmallDescription)
-        </dt>
-        <dd class="col-sm-10">
+        </div>
+        <div class="col-md-9 word-wrap">
             @Html.DisplayFor(model => model.SmallDescription)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.QuantityBeverage)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.QuantityBeverage)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Date)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Date)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.AgeBeverage)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.AgeBeverage)
-        </dd>
-    </dl>
+        </div>
+    </div>
+}
+
+@if (Model.Comment != null)
+{
+    <div class="row">
+        <div class="col-md-3">
+            @Html.DisplayNameFor(model => model.Comment)
+        </div>
+        <div class="col-md-9 word-wrap">
+            @Html.DisplayFor(model => model.Comment)
+        </div>
+    </div>
+}
+<div class="row">
+    <div class="col-md-3">
+        @Html.DisplayNameFor(model => model.QuantityBeverage)
+    </div>
+    <div class="col-md-9">
+        @Html.DisplayFor(model => model.QuantityBeverage)
+    </div>
 </div>
-<div>
-    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ })
+<div class="row">
+    <div class="col-md-3">
+        @Html.DisplayNameFor(model => model.Date)
+    </div>
+    <div class="col-md-9">
+        @Html.DisplayFor(model => model.Date)
+    </div>
 </div>
+<div class="row">
+    <div class="col-md-3">
+        @Html.DisplayNameFor(model => model.AgeBeverage)
+    </div>
+    <div class="col-md-9">
+        @Html.DisplayFor(model => model.AgeBeverage)
+    </div>
+</div>
+<p>
+
+</p>
+
+<div class="form-actions">
+    <button onclick="showInPopup('@Url.Action("Edit", "Cellar", new { id = Model.CellarId }, Context.Request.Scheme)', 'Edit')" data-backdrop="false" data-target="#form-modal" data-toggle="modal" class="btn btn-block btn-secondary text-white"><i class="fas fa-pen"></i></button>
+</div>
+

@@ -7753,7 +7753,7 @@ button.bg-dark:focus {
 }
 
 .overflow-hidden {
-  overflow: hidden !important;
+    overflow: hidden !important;
 }
 
 .position-static {

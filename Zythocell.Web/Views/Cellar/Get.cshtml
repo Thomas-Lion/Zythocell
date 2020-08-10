@@ -27,11 +27,11 @@
                             <a asp-action="Details" asp-route-id="@item.CellarId" class="h4">
                                 @Html.DisplayFor(modelItem => item.NameBeverage)
                             </a>
-                            <a asp-action="PlusOne" asp-route-id="@item.CellarId" class="btn pl-1 pr-1 float-right bg-secondary text-white"><i class="fas fa-plus"></i></a>
+                            <a asp-action="PlusOne" asp-route-id="@item.CellarId" class="btn float-right bg-secondary text-white"><i class="fas fa-plus"></i></a>
                             <span class="btn pl-1 pr-1 float-right">
                                 @Html.DisplayFor(modelItem => item.QuantityBeverage)
                             </span>
-                            <a asp-action="MinusOne" asp-route-id="@item.CellarId" class="btn pl-1 pr-1 float-right bg-secondary text-white"><i class="fas fa-minus"></i></a>
+                            <a asp-action="MinusOne" asp-route-id="@item.CellarId" class="btn float-right bg-secondary text-white"><i class="fas fa-minus"></i></a>
                         </div>
                     </div>
                     <p>
@@ -46,7 +46,8 @@
                     </p>
                 </div>
                 <div class="card-footer">
-                    <a onclick="showInPopup('@Url.Action("Details", "Cellar", new { id = item.CellarId }, Context.Request.Scheme)', 'Details')" class="btn btn-block btn-secondary text-white"><i class="fas fa-ellipsis-h"></i></a>
+                    <button onclick="showInPopup('@Url.Action("Details", "Cellar", new { id = item.CellarId }, Context.Request.Scheme)','@item.NameBeverage')" data-dismiss="modal" data-backdrop="false" data-target="#form-modal" data-toggle="modal" class="btn btn-block btn-secondary text-white"><i class="fas fa-ellipsis-h"></i></button>
+                   @* <button type="button" data-toggle="modal"  class="btn btn-block btn-secondary text-white"><i class="fas fa-ellipsis-h"></i></button>*@
                 </div>
             </div>
 
