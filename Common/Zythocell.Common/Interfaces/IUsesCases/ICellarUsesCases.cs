@@ -17,6 +17,7 @@ namespace Zythocell.Common.Interfaces.IUsesCases
         CellarTO AdditionToCellar(CellarTO cellar);
         CellarTO UpdateAnEntry(CellarTO cellar);
         List<CellarTO> GetAllCellar(Guid user);
+        CellarTO GetSpecificCellar(Guid user, int id);
         //Calendar GetHistory(Guid user)
         List<CellarTO> SearchEntry(string search);
         CellarTO MinusOne(CellarTO cellar);
@@ -26,5 +27,6 @@ namespace Zythocell.Common.Interfaces.IUsesCases
         RateTO UpdateARating(RateTO rate);
         bool DeleteARating(Guid user,RateTO rating);
         List<RateTO> GetAllRating(Guid user);
+        RateTO GetSpecificRate(Guid user, int id);
     }
 }

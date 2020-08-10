@@ -12,5 +12,6 @@ namespace Zythocell.DAL.Entities
         public int Quantity { get; set; }
         public DateTime Date { get; set; }
         public DateTime AgeBeverage { get; set; }
+        public string SmallDescription { get; set; }
     }
 }

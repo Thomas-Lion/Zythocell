@@ -19,6 +19,7 @@ namespace Zythocell.DAL.Extensions
             {
                 Id = rate.Id,
                 BeverageId = rate.BeverageId,
+                CellarId = rate.CellarId,
                 UserId = rate.UserId,
                 Comment = rate.Comment,
                 Rating = rate.Rating,
@@ -37,6 +38,7 @@ namespace Zythocell.DAL.Extensions
             {
                 Id = rate.Id,
                 BeverageId = rate.BeverageId,
+                CellarId = rate.CellarId,
                 UserId = rate.UserId,
                 Comment = rate.Comment,
                 Rating = rate.Rating,
@@ -59,6 +61,7 @@ namespace Zythocell.DAL.Extensions
             {
                 rAttach.Id = rDetached.Id;
                 rAttach.BeverageId = rDetached.BeverageId;
+                rAttach.CellarId = rDetached.CellarId;
                 rAttach.UserId = rDetached.UserId;
                 rAttach.Rating = rDetached.Rating;
                 rAttach.Comment = rDetached.Comment;

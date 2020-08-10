@@ -30,6 +30,7 @@ namespace Zythocell.DAL.Repositories
                 throw new ArgumentException(nameof(rate));
 
             rate.IsDeleted = true;
+            rate.CellarId = 0;
             return Update(rate).IsDeleted;
         }
 

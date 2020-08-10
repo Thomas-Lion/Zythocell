@@ -27,8 +27,4 @@
     <ProjectReference Include="..\Services\Identity\Zythocell.Identity\Zythocell.Identity.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="wwwroot\lib\bootstrap\dist\css\" />
-  </ItemGroup>
-
 </Project>

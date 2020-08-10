@@ -15,5 +15,6 @@ namespace Zythocell.Common.TransferObject
         public DateTime Date { get; set; }
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime AgeBeverage { get; set; }
+        public string SmallDescription { get; set; }
     }
 }

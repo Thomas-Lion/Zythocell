@@ -24,22 +24,18 @@
                 <div class="card-body">
                     <div class="card-title">
                         <div class="justify-content">
-                            <a asp-action="Details" asp-route-id="@item.CellarId">
+                            <a asp-action="Details" asp-route-id="@item.CellarId" class="h4">
                                 @Html.DisplayFor(modelItem => item.NameBeverage)
                             </a>
-                            <span class="border pl-1 pr-1 float-right bg-light">
-                                <a asp-action="PlusOne" asp-route-id="@item.CellarId"><i class="fas fa-plus"></i></a>
-                            </span>
-                            <span class="border pl-1 pr-1 float-right">
+                            <a asp-action="PlusOne" asp-route-id="@item.CellarId" class="btn pl-1 pr-1 float-right bg-secondary text-white"><i class="fas fa-plus"></i></a>
+                            <span class="btn pl-1 pr-1 float-right">
                                 @Html.DisplayFor(modelItem => item.QuantityBeverage)
                             </span>
-                            <span class="border pl-1 pr-1 float-right bg-light">
-                                <a asp-action="MinusOne" asp-route-id="@item.CellarId"><i class="fas fa-minus"></i></a>
-                            </span>
+                            <a asp-action="MinusOne" asp-route-id="@item.CellarId" class="btn pl-1 pr-1 float-right bg-secondary text-white"><i class="fas fa-minus"></i></a>
                         </div>
                     </div>
                     <p>
-                        @Html.DisplayFor(modelItem => item.Alcohol)%
+                        @Html.DisplayFor(modelItem => item.Alcohol)% |
                         @Html.DisplayFor(modelItem => item.SizeBottle)cl
                     </p>
                     <p>
@@ -50,13 +46,12 @@
                     </p>
                 </div>
                 <div class="card-footer">
-                    <div class="right btn btn-block btn-secondary">
-                        <a asp-action="Edit" asp-route-id="@item.CellarId" class="text-white"><i class="fas fa-ellipsis-h"></i></a>
-                    </div>
+                    <a onclick="showInPopup('@Url.Action("Details", "Cellar", new { id = item.CellarId }, Context.Request.Scheme)', 'Details')" class="btn btn-block btn-secondary text-white"><i class="fas fa-ellipsis-h"></i></a>
                 </div>
             </div>
 
         }
     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 </body>
 </html>

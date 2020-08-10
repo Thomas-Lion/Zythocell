@@ -1,0 +1,29 @@
+[
+  {
+    "Id": 1,
+    "UserId": "d8e4738f-860e-40ab-820a-a78cbc503d7f",
+    "BeverageId": 1,
+    "CellarId": 1,
+    "Rating": 5,
+    "Comment": "LOREM ISPUM 1 COMMENT DONT WANNA GOOGLE GENERATOR CAUSE IM LAZY",
+    "IsDeleted": false
+  },
+  {
+    "Id": 2,
+    "UserId": "d8e4738f-860e-40ab-820a-a78cbc503d7f",
+    "BeverageId": 2,
+    "CellarId": 2,
+    "Rating": 5,
+    "Comment": "LOREM ISPUM 2 COMMENT DONT WANNA GOOGLE GENERATOR CAUSE IM LAZY",
+    "IsDeleted": false
+  },
+  {
+    "Id": 3,
+    "UserId": "d8e4738f-860e-40ab-820a-a78cbc503d7f",
+    "BeverageId": 3,
+    "CellarId": 3,
+    "Rating": 5,
+    "Comment": "333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333",
+    "IsDeleted": false
+  }
+]

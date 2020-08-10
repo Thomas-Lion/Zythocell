@@ -14,6 +14,7 @@ namespace Zythocell.Web.Models
         public int QuantityBeverage { get; set; }
         public double Alcohol { get; set; }
         public int SizeBottle { get; set; }
+        //120char +-
         public string SmallDescription { get; set; }
 
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]

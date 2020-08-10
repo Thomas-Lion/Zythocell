@@ -86,7 +86,7 @@ namespace Zythocell.BLL.UsesCases
 
         public BeverageTO GetABeverage(int id)
         {
-            if(id <= 0)
+            if (id <= 0)
                 throw new ArgumentException("Please use a valid Id");
             return UnitOfWork.BeverageRepository.GetById(id);
         }
@@ -116,6 +116,38 @@ namespace Zythocell.BLL.UsesCases
             //    result.Add(item);
             //}
             //return result;
+        }
+
+        public CellarTO GetSpecificCellar(Guid user, int id)
+        {
+            if (user == Guid.Empty)
+                throw new ArgumentNullException("You must be connected to see your cellar");
+            if (id <= 0)
+                throw new ArgumentException("Please use a valid Id");
+
+            var result = UnitOfWork.CellarRepository.GetById(id);
+            if (user == result.UserId)
+                return result;
+
+            throw new ArgumentException("Check if you're correctly connected or if the Id is correct");
+        }
+
+        public RateTO GetSpecificRate(Guid user, int id)
+        {
+            if (user == Guid.Empty)
+                throw new ArgumentNullException("You must be connected to see your cellar");
+            if (id <= 0)
+                throw new ArgumentException("Please use a valid Id");
+
+            var allRate = UnitOfWork.RateRepository.GetByUser(user);
+
+            foreach (var rate in allRate)
+            {
+                if (rate.CellarId == id)
+                    return rate;
+            }
+
+            throw new ArgumentException("Check if you're correctly connected or if the Id is correct");
         }
 
         public CellarTO MinusOne(CellarTO cellar)

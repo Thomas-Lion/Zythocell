@@ -23,7 +23,7 @@
   },
   {
     "Id":3,
-    "Name":"Valduc Fée Steve",
+    "Name":"Valduc Fee Steve",
     "BeveragType":0,
     "Country":"Belgium",
     "Productor":"Brasserie Coopérative Valduc-Thor",
@@ -42,6 +42,6 @@
     "Size":33,
     "Color":"Brown",
     "IsDeleted":false
-  },
+  }
 
 ]

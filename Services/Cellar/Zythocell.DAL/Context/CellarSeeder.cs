@@ -27,6 +27,7 @@ namespace Zythocell.DAL.Context
             context.Database.EnsureCreated();
             CellarJsonSeeder();
             BeverageJsonSeeder();
+            RateJsonSeeder();
 
             context.SaveChanges();
         }
@@ -48,7 +49,7 @@ namespace Zythocell.DAL.Context
         
         private void BeverageJsonSeeder()
         {
-            if (!context.Cellars.Any())
+            if (!context.Beverages.Any())
             {
                 var filepath = Path.Combine("C:/Users/Thomas/source/repos/Zythocell/Services/Cellar/Zythocell.DAL/Context/beverage.json");
                 var json = File.ReadAllText(filepath);
@@ -57,6 +58,21 @@ namespace Zythocell.DAL.Context
                 foreach (var item in beverages)
                 {
                     context.Beverages.AddRange(item.ToEF());
+                }
+            }
+        }
+        
+        private void RateJsonSeeder()
+        {
+            if (!context.Rates.Any())
+            {
+                var filepath = Path.Combine("C:/Users/Thomas/source/repos/Zythocell/Services/Cellar/Zythocell.DAL/Context/rate.json");
+                var json = File.ReadAllText(filepath);
+                var rates = JsonConvert.DeserializeObject<IEnumerable<RateTO>>(json);
+
+                foreach (var item in rates)
+                {
+                    context.Rates.AddRange(item.ToEF());
                 }
             }
         }

@@ -15,7 +15,6 @@ using Zythocell.Web.Models;
 
 namespace Zythocell.Web.Controllers
 {
-    [Route("api/[Controller]")]
     public class CellarController : Controller
     {
         private readonly ILogger<CellarController> _logger;
@@ -53,7 +52,8 @@ namespace Zythocell.Web.Controllers
                         Alcohol = beverage.Alcohol,
                         SizeBottle = beverage.Size,
                         DateBotteling = item.AgeBeverage,
-                        QuantityBeverage = item.Quantity
+                        QuantityBeverage = item.Quantity,
+                        SmallDescription = item.SmallDescription
                     };
 
                     resultVM.Add(vm);
@@ -63,14 +63,48 @@ namespace Zythocell.Web.Controllers
             }
             catch (Exception ex)
             {
-                throw;
+                throw ex;
             }
         }
 
         // GET: CellarController/Details/5
+        [HttpGet]
         public ActionResult Details(int id)
         {
-            return View();
+                var cellarResult = _cellarUsesCases.GetSpecificCellar(_userManager.GetUserAsync(User).Result.Id, id);
+            try
+            {
+                var rateResult = _cellarUsesCases.GetSpecificRate(_userManager.GetUserAsync(User).Result.Id, id);
+
+                var vm = new RateVM
+                {
+                    CellarId = cellarResult.Id,
+                    BeverageId = cellarResult.BeverageId,
+                    QuantityBeverage = cellarResult.Quantity,
+                    AgeBeverage = cellarResult.AgeBeverage,
+                    Date = cellarResult.Date,
+                    SmallDescription = cellarResult.SmallDescription,
+                    RateId = rateResult.Id,
+                    Rating = rateResult.Rating,
+                    Comment = rateResult.Comment
+                };
+
+                return View(vm);
+            }
+            catch (Exception )
+            {
+                var vm = new RateVM
+                {
+                    CellarId = cellarResult.Id,
+                    BeverageId = cellarResult.BeverageId,
+                    QuantityBeverage = cellarResult.Quantity,
+                    AgeBeverage = cellarResult.AgeBeverage,
+                    Date = cellarResult.Date,
+                    SmallDescription = cellarResult.SmallDescription,
+                };
+
+                return View(vm);
+            }
         }
 
         // GET: CellarController/Create
@@ -97,34 +131,13 @@ namespace Zythocell.Web.Controllers
         // GET: CellarController/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            return Details(id);
         }
 
         // POST: CellarController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: CellarController/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: CellarController/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
         {
             try
             {
