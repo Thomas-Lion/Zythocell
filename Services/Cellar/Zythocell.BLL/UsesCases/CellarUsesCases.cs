@@ -31,7 +31,16 @@ namespace Zythocell.BLL.UsesCases
             if (cellar.BeverageId <= 0)
                 throw new ArgumentNullException("The cellar must have a valid beverage associated");
 
-            return UnitOfWork.CellarRepository.Insert(cellar);
+            var added = UnitOfWork.CellarRepository.Insert(cellar);
+
+            CreateANewRating(new RateTO
+            {
+                UserId = added.UserId,
+                BeverageId = added.BeverageId,
+                CellarId = added.Id
+            });
+
+            return added;
         }
 
         public BeverageTO CreateANewBeverage(BeverageTO beverage)

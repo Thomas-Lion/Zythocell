@@ -1,0 +1,63 @@
+﻿@model IEnumerable<CellarVM>
+
+@{
+    ViewData["Title"] = "Cellar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Cellar</title>
+</head>
+<body>
+    <p>
+        <button onclick="showInPopup('@Url.Action("Create", "Cellar", null, Context.Request.Scheme)','Add')"
+                data-dismiss="modal" data-target="#form-modal" data-toggle="modal" class="btn btn-block btn-secondary text-white">
+            <i class="fas fa-plus-circle"></i> Add
+        </button>
+    </p>
+    <div class="card-columns">
+        @foreach (var item in Model)
+        {
+            <div class="card">
+                <img class="card-img flex-column align-items-start img-fluid" src="~/Img/@(item.BeverageId).jpg" alt="Picture of the bottle">
+                <div class="card-body">
+                    <div class="card-title">
+                        <div class="justify-content">
+                            <h4>
+                                @Html.DisplayFor(modelItem => item.NameBeverage)
+                                <a asp-action="PlusOne" asp-route-id="@item.CellarId" class="btn float-right bg-secondary text-white"><i class="fas fa-plus"></i></a>
+                                <span class="btn pl-1 pr-1 float-right">
+                                    @Html.DisplayFor(modelItem => item.QuantityBeverage)
+                                </span>
+                                <a asp-action="MinusOne" asp-route-id="@item.CellarId" class="btn float-right bg-secondary text-white"><i class="fas fa-minus"></i></a>
+                            </h4>
+                        </div>
+                    </div>
+                    <p>
+                        @Html.DisplayFor(modelItem => item.Alcohol)% |
+                        @Html.DisplayFor(modelItem => item.SizeBottle)cl
+                    </p>
+                    <p>
+                        @Html.DisplayFor(modelItem => item.SmallDescription)
+                    </p>
+                    <p class="small">
+                        @Html.DisplayNameFor(modelItem => item.DateBotteling) @Html.DisplayFor(modelItem => item.DateBotteling)
+                    </p>
+                </div>
+                <div class="card-footer">
+                    <button onclick="showInPopup('@Url.Action("Details", "Cellar", new { id = item.CellarId }, Context.Request.Scheme)','@item.NameBeverage')"
+                            data-dismiss="modal" data-target="#form-modal" data-toggle="modal" class="btn btn-block btn-secondary text-white">
+                        <i class="fas fa-ellipsis-h"></i>
+                    </button>
+                </div>
+            </div>
+
+        }
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+</body>
+</html>

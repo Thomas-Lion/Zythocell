@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -8,7 +9,9 @@ namespace Zythocell.Web.Models
 {
     public class CellarVM
     {
+        [HiddenInput]
         public int BeverageId { get; set; }
+        [HiddenInput]
         public int CellarId { get; set; }
         public string NameBeverage { get; set; }
         public int QuantityBeverage { get; set; }
@@ -17,7 +20,8 @@ namespace Zythocell.Web.Models
         //120char +-
         public string SmallDescription { get; set; }
 
-        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
+        [Display(Name = "Bottled/Bought in")]
+        [DisplayFormat(DataFormatString = "{0:MM/yyyy}")]
         public DateTime DateBotteling { get; set; }
     }
 }

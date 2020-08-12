@@ -2,13 +2,10 @@
 
 @{ Layout = null;}
 
-
+<img class="card-img flex-column align-items-start img-fluid" src="~/Img/@(Model.BeverageId).jpg" alt="Picture of the bottle">
 <div class="row">
-    <img class="card-img flex-column align-items-start img-fluid" src="~/Img/@(Model.BeverageId).jpg" alt="Picture of the bottle">
-    <div class="row">
-        <div class="col-md">
-            @Html.DisplayNameFor(model => model.Rating)
-        </div>
+    <div class="col-md-3">
+        @Html.DisplayNameFor(model => model.Rating)
     </div>
     <div class="col-md-9">
         @Html.DisplayFor(model => model.Rating)
@@ -25,7 +22,6 @@
         </div>
     </div>
 }
-
 @if (Model.Comment != null)
 {
     <div class="row">
@@ -46,26 +42,26 @@
     </div>
 </div>
 <div class="row">
-    <div class="col-md-3">
-        @Html.DisplayNameFor(model => model.Date)
-    </div>
-    <div class="col-md-9">
-        @Html.DisplayFor(model => model.Date)
-    </div>
-</div>
-<div class="row">
-    <div class="col-md-3">
+    <div class="col-md-4">
         @Html.DisplayNameFor(model => model.AgeBeverage)
     </div>
-    <div class="col-md-9">
+    <div class="col-md-8">
         @Html.DisplayFor(model => model.AgeBeverage)
     </div>
 </div>
-<p>
-
-</p>
-
+<div class="row">
+    <div class="col-md-4">
+        @Html.DisplayNameFor(model => model.Date)
+    </div>
+    <div class="col-md-8">
+        @Html.DisplayFor(model => model.Date)
+    </div>
+</div>
+<br />
 <div class="form-actions">
-    <button onclick="showInPopup('@Url.Action("Edit", "Cellar", new { id = Model.CellarId }, Context.Request.Scheme)', 'Edit')" data-backdrop="false" data-target="#form-modal" data-toggle="modal" class="btn btn-block btn-secondary text-white"><i class="fas fa-pen"></i></button>
+    <button onclick="showInPopup('@Url.Action("Edit", "Cellar", new { id = Model.CellarId }, Context.Request.Scheme)', 'Edit')"
+            data-target="#form-modal" data-toggle="modal" class="btn btn-block btn-secondary text-white">
+        <i class="fas fa-pen"></i>
+    </button>
 </div>
 

@@ -1,0 +1,43 @@
+﻿@model CellarVM
+@{ Layout = null;}
+
+<h4>CellarEF</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="NameBeverage" class="control-label"></label>
+                <input asp-for="NameBeverage" class="form-control" />
+                <span asp-validation-for="NameBeverage" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="QuantityBeverage" class="control-label"></label>
+                <input asp-for="QuantityBeverage" class="form-control" />
+                <span asp-validation-for="QuantityBeverage" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DateBotteling" class="control-label"></label>
+                <input asp-for="DateBotteling" class="form-control" />
+                <span asp-validation-for="DateBotteling" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SmallDescription" class="control-label"></label>
+                <input asp-for="SmallDescription" class="form-control" />
+                <span asp-validation-for="SmallDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

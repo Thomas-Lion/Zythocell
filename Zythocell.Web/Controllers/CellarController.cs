@@ -12,6 +12,7 @@ using Zythocell.Common.TransferObject;
 using Zythocell.DAL.Extensions;
 using Zythocell.Identity;
 using Zythocell.Web.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Zythocell.Web.Controllers
 {
@@ -34,7 +35,8 @@ namespace Zythocell.Web.Controllers
 
         // GET: CellarController
         [HttpGet]
-        public IActionResult Get()
+        [Authorize]
+        public IActionResult Index()
         {
             try
             {
@@ -69,6 +71,7 @@ namespace Zythocell.Web.Controllers
 
         // GET: CellarController/Details/5
         [HttpGet]
+        [Authorize]
         public ActionResult Details(int id)
         {
                 var cellarResult = _cellarUsesCases.GetSpecificCellar(_userManager.GetUserAsync(User).Result.Id, id);
@@ -108,6 +111,7 @@ namespace Zythocell.Web.Controllers
         }
 
         // GET: CellarController/Create
+        [Authorize]
         public ActionResult Create()
         {
             return View();
@@ -115,6 +119,7 @@ namespace Zythocell.Web.Controllers
 
         // POST: CellarController/Create
         [HttpPost]
+        [Authorize]
         [ValidateAntiForgeryToken]
         public ActionResult Create(IFormCollection collection)
         {
@@ -129,6 +134,7 @@ namespace Zythocell.Web.Controllers
         }
 
         // GET: CellarController/Edit/5
+        [Authorize]
         public ActionResult Edit(int id)
         {
             return Details(id);
@@ -136,6 +142,7 @@ namespace Zythocell.Web.Controllers
 
         // POST: CellarController/Edit/5
         [HttpPost]
+        [Authorize]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, IFormCollection collection)
         {

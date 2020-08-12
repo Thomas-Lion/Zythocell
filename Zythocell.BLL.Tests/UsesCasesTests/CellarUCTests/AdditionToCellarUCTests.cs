@@ -20,6 +20,8 @@ namespace Zythocell.BLL.Tests.UsesCasesTests.CellarUCTests
 
             mockUOW.Setup(x => x.CellarRepository.Insert(It.IsAny<CellarTO>()))
                    .Returns(new CellarTO(){ Id = 1, BeverageId = 1, UserId = userA, Quantity = 1, AgeBeverage = DateTime.Now, Date = DateTime.Now });
+            mockUOW.Setup(x => x.RateRepository.Insert(It.IsAny<RateTO>()))
+                   .Returns(new RateTO(){ Id = 1, BeverageId = 1, UserId = userA, CellarId = 1});
 
             var sut = new CellarUsesCases(mockUOW.Object);
             var cellar = new CellarTO()
