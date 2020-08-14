@@ -20,13 +20,13 @@ namespace Zythocell.BLL.Tests.UsesCasesTests.BeverageUCTests
             var userA = new Guid("AAAAAAAA-AAAA-AAAA-AAAA-AAAAAAAAAAAA");
 
             mockUOW.Setup(x => x.BeverageRepository.Insert(It.IsAny<BeverageTO>()))
-                   .Returns(new BeverageTO { Id = 1, Name = "Peak Triple", BeveragType = BeverageType.Beer, Country = "Belgium", Productor = "Belgium Peak Beer SR", Alcohol = 8.5, Size = 33, Color = "Brown", IsDeleted = false });
+                   .Returns(new BeverageTO { Id = 1, Name = "Peak Triple", BeverageType = BeverageType.Beer, Country = "Belgium", Productor = "Belgium Peak Beer SR", Alcohol = 8.5, Size = 33, Color = "Brown", IsDeleted = false });
 
             var sut = new CellarUsesCases(mockUOW.Object);
             var beverage = new BeverageTO
             {
                 Name = "Peak Triple",
-                BeveragType = BeverageType.Beer,
+                BeverageType = BeverageType.Beer,
                 Country = "Belgium",
                 Productor = "Belgium Peak Beer SR",
                 Alcohol = 8.5,
@@ -48,14 +48,14 @@ namespace Zythocell.BLL.Tests.UsesCasesTests.BeverageUCTests
             var userA = new Guid("AAAAAAAA-AAAA-AAAA-AAAA-AAAAAAAAAAAA");
 
             mockUOW.Setup(x => x.BeverageRepository.Insert(It.IsAny<BeverageTO>()))
-                   .Returns(new BeverageTO { Id = 1, Name = "Peak Triple", BeveragType = BeverageType.Beer, Country = "Belgium", Productor = "Belgium Peak Beer SR", Alcohol = 8.5, Size = 33, Color = "Brown", IsDeleted = false });
+                   .Returns(new BeverageTO { Id = 1, Name = "Peak Triple", BeverageType = BeverageType.Beer, Country = "Belgium", Productor = "Belgium Peak Beer SR", Alcohol = 8.5, Size = 33, Color = "Brown", IsDeleted = false });
 
             var sut = new CellarUsesCases(mockUOW.Object);
             var beverage = new BeverageTO
             {
                 Id = 1,
                 Name = "Peak Triple",
-                BeveragType = BeverageType.Beer,
+                BeverageType = BeverageType.Beer,
                 Country = "Belgium",
                 Productor = "Belgium Peak Beer SR",
                 Alcohol = 8.5,
@@ -73,13 +73,13 @@ namespace Zythocell.BLL.Tests.UsesCasesTests.BeverageUCTests
             var userA = new Guid("AAAAAAAA-AAAA-AAAA-AAAA-AAAAAAAAAAAA");
 
             mockUOW.Setup(x => x.BeverageRepository.Insert(It.IsAny<BeverageTO>()))
-                   .Returns(new BeverageTO { Id = 1, Name = "Peak Triple", BeveragType = BeverageType.Beer, Country = "Belgium", Productor = "Belgium Peak Beer SR", Alcohol = 8.5, Size = 33, Color = "Brown", IsDeleted = false });
+                   .Returns(new BeverageTO { Id = 1, Name = "Peak Triple", BeverageType = BeverageType.Beer, Country = "Belgium", Productor = "Belgium Peak Beer SR", Alcohol = 8.5, Size = 33, Color = "Brown", IsDeleted = false });
 
             var sut = new CellarUsesCases(mockUOW.Object);
             var beverage = new BeverageTO
             {
                 Name = "Peak Triple",
-                BeveragType = BeverageType.Beer,
+                BeverageType = BeverageType.Beer,
                 Country = "Belgium",
                 Productor = "Belgium Peak Beer SR",
                 Alcohol = 8.5,
@@ -97,13 +97,13 @@ namespace Zythocell.BLL.Tests.UsesCasesTests.BeverageUCTests
             var userA = new Guid("AAAAAAAA-AAAA-AAAA-AAAA-AAAAAAAAAAAA");
 
             mockUOW.Setup(x => x.BeverageRepository.Insert(It.IsAny<BeverageTO>()))
-                   .Returns(new BeverageTO { Id = 1, Name = "Peak Triple", BeveragType = BeverageType.Beer, Country = "Belgium", Productor = "Belgium Peak Beer SR", Alcohol = 8.5, Size = 33, Color = "Brown", IsDeleted = false });
+                   .Returns(new BeverageTO { Id = 1, Name = "Peak Triple", BeverageType = BeverageType.Beer, Country = "Belgium", Productor = "Belgium Peak Beer SR", Alcohol = 8.5, Size = 33, Color = "Brown", IsDeleted = false });
 
             var sut = new CellarUsesCases(mockUOW.Object);
             var beverage = new BeverageTO
             {
                 Name = "Peak Triple",
-                BeveragType = BeverageType.Beer,
+                BeverageType = BeverageType.Beer,
                 Country = "Belgium",
                 Productor = "Belgium Peak Beer SR",
                 Alcohol = -8.5,
@@ -121,7 +121,7 @@ namespace Zythocell.BLL.Tests.UsesCasesTests.BeverageUCTests
             var userA = new Guid("AAAAAAAA-AAAA-AAAA-AAAA-AAAAAAAAAAAA");
 
             mockUOW.Setup(x => x.BeverageRepository.Insert(It.IsAny<BeverageTO>()))
-                   .Returns(new BeverageTO { Id = 1, Name = "Peak Triple", BeveragType = BeverageType.Beer, Country = "Belgium", Productor = "Belgium Peak Beer SR", Alcohol = 8.5, Size = 33, Color = "Brown", IsDeleted = false });
+                   .Returns(new BeverageTO { Id = 1, Name = "Peak Triple", BeverageType = BeverageType.Beer, Country = "Belgium", Productor = "Belgium Peak Beer SR", Alcohol = 8.5, Size = 33, Color = "Brown", IsDeleted = false });
 
             var sut = new CellarUsesCases(mockUOW.Object);
 

@@ -18,7 +18,7 @@ namespace Zythocell.DAL.Extensions
             return new BeverageTO
             {
                 Id = beverage.Id,
-                BeveragType = beverage.BeveragType,
+                BeverageType = beverage.BeverageType,
                 Name = beverage.Name,
                 Country = beverage.Country,
                 Productor = beverage.Productor,
@@ -39,7 +39,7 @@ namespace Zythocell.DAL.Extensions
             return new BeverageEF
             {
                 Id = beverage.Id,
-                BeveragType = beverage.BeveragType,
+                BeverageType = beverage.BeverageType,
                 Name = beverage.Name,
                 Country = beverage.Country,
                 Productor = beverage.Productor,
@@ -64,7 +64,7 @@ namespace Zythocell.DAL.Extensions
             if ((bAttach != default) && (bDetached != default))
             {
                 bAttach.Id = bDetached.Id;
-                bAttach.BeveragType = bDetached.BeveragType;
+                bAttach.BeverageType = bDetached.BeverageType;
                 bAttach.Name = bDetached.Name;
                 bAttach.Country = bDetached.Country;
                 bAttach.Productor = bDetached.Productor;

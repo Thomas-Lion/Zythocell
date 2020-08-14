@@ -14,7 +14,7 @@ namespace Zythocell.BLL.Tests.UsesCasesTests.BeverageUCTests
             {
                 Id = 1,
                 Name = "Peak Triple",
-                BeveragType = BeverageType.Beer,
+                BeverageType = BeverageType.Beer,
                 Country = "Belgium",
                 Productor = "Belgium Peak Beer SR",
                 Alcohol = 8.5,
@@ -26,7 +26,7 @@ namespace Zythocell.BLL.Tests.UsesCasesTests.BeverageUCTests
             {
                 Id = 2,
                 Name = "Orval",
-                BeveragType = BeverageType.Beer,
+                BeverageType = BeverageType.Beer,
                 Color = "Brown",
                 Country = "Belgium",
                 Productor = "Abbaye d'Orval",
@@ -38,7 +38,7 @@ namespace Zythocell.BLL.Tests.UsesCasesTests.BeverageUCTests
             {
                 Id = 3,
                 Name = "Valduc Fée Steve",
-                BeveragType = BeverageType.Beer,
+                BeverageType = BeverageType.Beer,
                 Country = "Belgium",
                 Productor = "Brasserie Coopérative Valduc-Thor",
                 Alcohol = 6.3,

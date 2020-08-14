@@ -14,6 +14,8 @@ namespace Zythocell.Web.Models
         public int CellarId { get; set; }
         [HiddenInput]
         public int BeverageId { get; set; }
+        [Display(Name = "Beer")]
+        public string NameBeverage { get; set; }
         [HiddenInput]
         public int RateId { get; set; }
 

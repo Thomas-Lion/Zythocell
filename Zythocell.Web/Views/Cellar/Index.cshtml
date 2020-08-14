@@ -5,18 +5,22 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<!DOCTYPE html>
+@*<!DOCTYPE html>
 
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Cellar</title>
 </head>
-<body>
-    <p>
-        <button onclick="showInPopup('@Url.Action("Create", "Cellar", null, Context.Request.Scheme)','Add')"
+<body>*@
+    <p class="row">
+        <button onclick="showInPopup('@Url.Action("Create", "Beverage", null, Context.Request.Scheme)','Add Beer')"
+                data-dismiss="modal" data-target="#form-modal" data-toggle="modal" class="btn btn-block float-left btn-secondary text-white">
+            <i class="fas fa-plus-circle"></i> New Beer
+        </button>
+        <button onclick="showInPopup('@Url.Action("Create", "Cellar", null, Context.Request.Scheme)','Add an entry')"
                 data-dismiss="modal" data-target="#form-modal" data-toggle="modal" class="btn btn-block btn-secondary text-white">
-            <i class="fas fa-plus-circle"></i> Add
+            <i class="fas fa-plus-circle"></i> Add an entry
         </button>
     </p>
     <div class="card-columns">
@@ -59,5 +63,5 @@
         }
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-</body>
-</html>
+@*</body>
+</html>*@

@@ -121,18 +121,39 @@ namespace Zythocell.Web.Controllers
         [HttpPost]
         [Authorize]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult Create(RateVM rateVM)
         {
             try
             {
+                var cellar = new CellarTO
+                {
+                    UserId = _userManager.GetUserAsync(User).Result.Id,
+                    BeverageId = rateVM.BeverageId,
+                    AgeBeverage = rateVM.AgeBeverage,
+                    Date = rateVM.Date,
+                    Quantity = rateVM.QuantityBeverage,
+                    SmallDescription = rateVM.SmallDescription
+                };
+                var addedCellar = _cellarUsesCases.AdditionToCellar(cellar);
+
+                var rate = new RateTO
+                {
+                    CellarId = addedCellar.Id,
+                    BeverageId = rateVM.BeverageId,
+                    UserId = _userManager.GetUserAsync(User).Result.Id,
+                    Comment = rateVM.Comment,
+                    Rating = rateVM.Rating
+                };
+                _cellarUsesCases.CreateANewRating(rate);
+
                 return RedirectToAction(nameof(Index));
             }
             catch
             {
                 return View();
             }
-        }
-
+        }        
+        
         // GET: CellarController/Edit/5
         [Authorize]
         public ActionResult Edit(int id)

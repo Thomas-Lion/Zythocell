@@ -26,7 +26,7 @@ namespace Zythocell.DAL.Tests.RepositoriesTests.BeverageTests
             var beverage1 = new BeverageTO
             {
                 Name = "Orval1",
-                BeveragType = BeverageType.Beer,
+                BeverageType = BeverageType.Beer,
                 Color = "Brown1",
                 Country = "Belgium1",
                 Productor = "Abbaye d'Orval1",
@@ -37,7 +37,7 @@ namespace Zythocell.DAL.Tests.RepositoriesTests.BeverageTests
             var beverage2 = new BeverageTO
             {
                 Name = "Orval2",
-                BeveragType = BeverageType.Beer,
+                BeverageType = BeverageType.Beer,
                 Color = "Brown2",
                 Country = "Belgium2",
                 Productor = "Abbaye d'Orval2",
@@ -48,7 +48,7 @@ namespace Zythocell.DAL.Tests.RepositoriesTests.BeverageTests
             var beverage3 = new BeverageTO
             {
                 Name = "Orval3",
-                BeveragType = BeverageType.Beer,
+                BeverageType = BeverageType.Beer,
                 Color = "Brown3",
                 Country = "Belgium3",
                 Productor = "Abbaye d'Orval3",

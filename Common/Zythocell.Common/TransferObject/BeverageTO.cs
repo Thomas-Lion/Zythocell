@@ -9,7 +9,7 @@ namespace Zythocell.Common.TransferObject
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public BeverageType BeveragType { get; set; }
+        public BeverageType BeverageType { get; set; }
         public string Country { get; set; }
         public string Productor { get; set; }
         public double Alcohol { get; set; }
